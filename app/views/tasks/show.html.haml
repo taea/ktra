@@ -1,0 +1,22 @@
+%p#notice= notice
+%p
+  %b Title:
+  = @task.title
+%p
+  %b Point:
+  = @task.point
+%p
+  %b Status:
+  = @task.status
+%p
+  %b Memo:
+  = @task.memo
+%p
+  %b Started at:
+  = @task.started_at
+%p
+  %b Finished at:
+  = @task.finished_at
+= link_to 'Edit', edit_task_path(@task)
+|
+\#{link_to 'Back', tasks_path}
