@@ -1,0 +1,41 @@
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :point %><br />
+    <%= f.number_field :point %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :memo %><br />
+    <%= f.text_area :memo %>
+  </div>
+  <div class="field">
+    <%= f.label :started_at %><br />
+    <%= f.text_field :started_at %>
+  </div>
+  <div class="field">
+    <%= f.label :finished_at %><br />
+    <%= f.datetime_select :finished_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
