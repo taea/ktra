@@ -5,7 +5,7 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :point
       t.string :status
       t.text :memo
-      t.detetime :started_at
+      t.datetime :started_at
       t.datetime :finished_at
 
       t.timestamps
