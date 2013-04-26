@@ -1,0 +1,313 @@
+// ==========================================================================
+// zurui-liner-gradient
+// --------------------------------------------------------------------------
+=gradient-top-lighten($color : #666, $lighten: 10%)
+  background-color: $color
+  +filter-gradient(lighten($color, $lighten), $color,vertical)
+  +background-image(linear-gradient(lighten($color,$lighten) 0%, $color 100%))
+
+=gradient-top-darken($color : #666, $darken: 10%)
+  background-color: $color
+  +filter-gradient(darken($color, $darken), $color,vertical)
+  +background-image(linear-gradient(darken($color,$darken) 0%, $color 100%))
+
+// ==========================================================================
+// alpha-gray-scale gradient
+// --------------------------------------------------------------------------
+=gradient-gray-scale($op-fff: .1, $op-000: .1)
+  +filter-gradient(rgba(255, 255, 255, $op-fff), rgba(0, 0, 0, $op-000),vertical)
+  +background-image(linear-gradient(rgba(255, 255, 255, $op-fff), rgba(0, 0, 0, $op-000) 100%))
+  background-image: linear-gradient(rgba(255, 255, 255, $op-fff), rgba(0, 0, 0, $op-000))
+
+// ==========================================================================
+// overlay
+// --------------------------------------------------------------------------
+=op-000($op: 0.1)
+  background-color: rgba(0,0,0,$op)
+
+=op-fff($op: 0.1)
+  background-color: rgba(255,255,255,$op)
+
+// ==========================================================================
+// zurui-text-shadow
+// --------------------------------------------------------------------------
+=ts-fff($op: 0.7)
+  +text-shadow(rgba(255, 255, 255, $op) -1px 1px 0)
+
+=ts-000($op: 0.4)
+  +text-shadow(rgba(0, 0, 0, $op) 1px -1px 0)
+
+=ts-fff-2x($op: 0.7)
+  +text-shadow(rgba(255, 255, 255, $op) -2px 2px 0)
+
+=ts-000-2x($op: 0.4)
+  +text-shadow(rgba(0, 0, 0, $op) 2px -2px 0)
+// ==========================================================================
+// zurui-box
+// --------------------------------------------------------------------------
+=box-deboss($border: .1, $shadow: .1, $highlight: 1)
+  border: 1px solid rgba(0,0,0,$border)
+  +box-shadow(rgba(0, 0, 0, $shadow) -1px 1px 2px inset, rgba(255, 255, 255, $highlight) -1px 1px 0)
+
+=box-emboss($border: .15, $shadow: .05, $highlight: 1)
+  border: 1px solid rgba(0,0,0,$border)
+  +box-shadow(rgba(0, 0, 0, $shadow) -1px 1px 0, rgba(255, 255, 255, $highlight) -1px 1px 0 inset)
+
+=box($op: .2)
+  +box-shadow(rgba(0, 0, 0, $op) 0 0 3px)
+
+// ==========================================================================
+// zurui-line
+// --------------------------------------------------------------------------
+=line-top($op1: .75, $op2: .15)
+  +box-shadow(rgba(255,255,255,$op1) 0 1px 0 inset)
+  border-top: 1px solid rgba(0,0,0,$op2)
+
+=line-bottom($op1: .75, $op2: .15)
+  +box-shadow(rgba(255,255,255,$op1) 0 2px 0)
+  border-bottom: 2px solid rgba(0,0,0,$op2)
+
+=line-left($op1: .75, $op2: .15)
+  +box-shadow(rgba(255,255,255,$op1) -1px 0 0)
+  border-left: 1px solid rgba(0,0,0,$op2)
+
+=line-right($op1: .75, $op2: .15)
+  +box-shadow(rgba(255,255,255,$op1) -1px 0 0 inset)
+  border-right: 1px solid rgba(0,0,0,$op2)
+
+=line-top-bottom($op1: .75, $op2: .15)
+  +box-shadow(rgba(255,255,255,$op1) 0 2px 0 inset, rgba(255,255,255,$op1) 0 2px 0)
+  border-top: 2px solid rgba(0,0,0,$op2)
+  border-bottom: 2px solid rgba(0,0,0,$op2)
+
+=line-left-right($op1: .75, $op2: .15)
+  +box-shadow(rgba(255,255,255,$op1) -1px 0 0, rgba(255,255,255,$op1) -1px 0 0 inset)
+  border-left: 1px solid rgba(0,0,0,$op2)
+  border-right: 1px solid rgba(0,0,0,$op2)
+
+=line-top-bottom-left-right($op1: .75, $op2: .15)
+  +box-shadow(rgba(255,255,255,$op1) -2px 0 0, rgba(255,255,255,$op1) -2px 0 0 inset, rgba(255,255,255,$op1) 0 2px 0 inset, rgba(255,255,255,$op1) 0 2px 0)
+  border-left: 2px solid rgba(0,0,0,$op2)
+  border-right: 2px solid rgba(0,0,0,$op2)
+  border-top: 2px solid rgba(0,0,0,$op2)
+  border-bottom: 2px solid rgba(0,0,0,$op2)
+
+// ==========================================================================
+// transform
+// --------------------------------------------------------------------------
+=transform($deg: 6deg)
+  -moz-transform: rotate($deg)
+  -webkit-transform: rotate($deg)
+  -o-transform: rotate($deg)
+  -ms-transform: rotate($deg)
+  transform: rotate($deg)
+
+// ==========================================================================
+// balloon
+// --------------------------------------------------------------------------
+=balloon-left($size: 6px, $color: #FFF, $top: 6px)
+  position: relative
+  &:after
+    position: absolute
+    content: ""
+    display: block
+    border: $size solid transparent
+    border-right: $size solid $color
+    top: $top
+    left: -1 * $size * 2
+
+=balloon-left-border($size: 6px, $color: #FFF, $top: 6px, $border_color: #CCC, $border: 1px)
+  position: relative
+  $size2 : $size + $border
+  +balloon-left($size, $color, $top)
+  &:before
+    position: absolute
+    content: ""
+    display: block
+    border: $size2 solid transparent
+    border-right: $size2 solid $border_color
+    top: $top - $border
+    left: -1 * $size2 * 2 
+
+=balloon-right($size: 6px, $color: #FFF, $top: 6px)
+  position: relative
+  &:after
+    position: absolute
+    content: ""
+    display: block
+    border: $size solid $color
+    border-right: $size solid transparent
+    border-top: $size solid transparent
+    border-bottom: $size solid transparent
+    top: $top
+    right: -1 * $size * 2
+
+=balloon-right-border($size: 6px, $color: #FFF, $top: 6px, $border_color: #CCC, $border: 1px)
+  position: relative
+  $size2 : $size + $border
+  +balloon-right($size, $color, $top)
+  &:before
+    position: absolute
+    content: ""
+    display: block
+    border: $size2 solid $border_color
+    border-right: $size2 solid transparent
+    border-top: $size2 solid transparent
+    border-bottom: $size2 solid transparent
+    top: $top - $border
+    right: -1 * $size2 * 2
+
+=balloon-top($size: 6px, $color: #FFF, $left: 6px)
+  position: relative
+  &:after
+    position: absolute
+    content: ""
+    display: block
+    border: $size solid $color
+    border-top: $size solid transparent
+    border-left: $size solid transparent
+    border-right: $size solid transparent
+    top: -1 * $size * 2
+    left: $left
+
+=balloon-top-border($size: 6px, $color: #FFF, $left: 6px, $border_color: #CCC, $border: 1px)
+  position: relative
+  $size2 : $size + $border
+  +balloon-top($size, $color, $left)
+  &:before
+    position: absolute
+    content: ""
+    display: block
+    border: $size2 solid $border_color
+    border-top: $size2 solid transparent
+    border-left: $size2 solid transparent
+    border-right: $size2 solid transparent
+    top: -1 * $size2 * 2
+    left: $left - $border
+
+=balloon-bottom($size: 6px, $color: #FFF, $left: 6px)
+  position: relative
+  &:after
+    position: absolute
+    content: ""
+    display: block
+    border: $size solid $color
+    border-bottom: $size solid transparent
+    border-left: $size solid transparent
+    border-right: $size solid transparent
+    bottom: -1 * $size * 2
+    left: $left
+
+=balloon-bottom-border($size: 6px, $color: #FFF, $left: 6px, $border_color: #CCC, $border: 1px)
+  position: relative
+  +balloon-bottom($size, $color, $left)
+  $size2 : $size + $border
+  &:before
+    position: absolute
+    content: ""
+    display: block
+    border: $size2 solid $border_color
+    border-bottom: $size2 solid transparent
+    border-left: $size2 solid transparent
+    border-right: $size2 solid transparent
+    bottom: -1 * $size2 * 2
+    left: $left - $border
+
+// ==========================================================================
+// font
+// --------------------------------------------------------------------------
+=main-font
+  font-family: 'Helvetica Neue', Arial, 'メイリオ', Meiryo ,'ヒラギノ角ゴPro W3' ,'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', sans-serif
+
+=helvetica
+  font-family: 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif
+
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,600,200,300,700)
+=num-font
+  font-family: 'Titillium Web', 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif
+
+=fw-400
+  font-weight: 400
+=fw-600
+  font-weight: 600
+=fw-200
+  font-weight: 200
+=fw-300
+  font-weight: 300
+=fw-700
+  font-weight: 700
+
+// ==========================================================================
+// adjustment
+// --------------------------------------------------------------------------
+=reset
+  margin: 0
+  padding: 0
+  +box-shadow(none)
+  border: none
+  background: none
+  a
+    background: none
+    margin: 0
+    padding: 0
+    +box-shadow(none)
+    border: none
+
+// ==========================================================================
+// misc cheat
+// --------------------------------------------------------------------------
+=norepeat
+  background-repeat: no-repeat
+
+=relative
+  position: relative
+
+=absolute
+  position: absolute
+
+=none
+  display: none
+
+=block
+  display: block
+
+=content
+  content: ""
+  display: block
+
+=nowrap
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+
+=hidden
+  overflow: hidden
+
+=opacity($op: .25)
+  filter: alpha(opacity= $op * 100)
+  -moz-opacity: $op
+  opacity: $op
+
+// ==========================================================================
+// unique design elements
+// --------------------------------------------------------------------------
+=box-header
+  display: block
+  +reset
+  +gradient-top-lighten(#EEE)
+  border-bottom: 1px solid #DDD
+  +box-shadow(rgba(255,255,255,1) 0 -1px inset)
+  padding: 10px
+  +border-top-radius(6px)
+  +transition-duration(.3s)
+
+=box-more
+  display: block
+  +reset
+  +gradient-top-darken(#FFF)
+  border-bottom: 1px solid #DDD
+  +box-shadow(rgba(255,255,255,1) 0 1px inset)
+  padding: 5px
+  +border-bottom-radius(6px)
+  +transition-duration(.3s)
+  text-align: center
