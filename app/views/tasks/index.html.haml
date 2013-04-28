@@ -1,25 +1,34 @@
-%h1 Listing tasks
-%table
-  %tr
-    %th Title
-    %th Point
-    %th Status
-    %th Memo
-    %th Started at
-    %th Finished at
-    %th
-    %th
-    %th
+%header
+  %h1 Ktra
+= link_to new_task_path do
+  %i.icon-plus-sign
+%nav
+  -# TODO ステータスによって出し分けナビ
+  %ul.tasks-sort-nav
+    %li= link_to 'UNSTARTED', '#'
+    %li= link_to 'DOING', '#' 
+    %li= link_to 'DONE', '#'
+
+%ul.tasks-list
   - @tasks.each do |task|
-    %tr
-      %td= task.title
-      %td= task.point
-      %td= task.status
-      %td= task.memo
-      %td= task.started_at
-      %td= task.finished_at
-      %td= link_to 'Show', task
-      %td= link_to 'Edit', edit_task_path(task)
-      %td= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Task', new_task_path
+    -# FIXME ステータスによってclassを変える
+    %li.task
+      =link_to edit_task_path(task) do
+        %span.title<>= task.title
+        - if task.point.present?
+          %span.point<>
+            %span.num<>= task.point
+            pts
+        - else
+          %span.point<>
+            %span.num<> ─
+            pts
+      - if task.status == 'unstarted'
+        %span.status.start<>
+          = link_to 'START', '#'
+      - if task.status == 'doing'
+        %span.status.finish<>
+          = link_to 'FINISH', '#'
+      - if task.status == 'done'
+        %span.status.restart<>
+          = link_to 'RESTART', '#'
