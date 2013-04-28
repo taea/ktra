@@ -8,28 +8,18 @@
         - @task.errors.full_messages.each do |msg|
           %li= msg
   .field
-    = f.label :title
-    %br/
+    = f.label :title, 'TASK'
     = f.text_field :title
   .field
-    = f.label :point
-    %br/
-    = f.number_field :point
+    = f.label :point, 'POINT'
+    = f.select :point, [[1],[2],[3],[5],[8]], include_blank: '---'
+  -# FIXME hidden_fieldにして現在のSTATUSに応じてSTART, FINISH, RESTART ボタンを表示
   .field
-    = f.label :status
-    %br/
-    = f.text_field :status
+    = f.label :status, 'STATUS'
+    = f.select :status, [['unstarted'],['doing'],['done']]
   .field
-    = f.label :memo
+    = f.label :memo, 'MEMO'
     %br/
     = f.text_area :memo
-  .field
-    = f.label :started_at
-    %br/
-    = f.text_field :started_at
-  .field
-    = f.label :finished_at
-    %br/
-    = f.datetime_select :finished_at
   .actions
     = f.submit

@@ -1,5 +1,9 @@
-%h1 Editing task
 = render 'form'
+%dl
+  %dt START
+  %dd= @task.started_at
+  %dt FINISH
+  %dd= @task.finished_at
 = link_to 'Show', @task
 |
 \#{link_to 'Back', tasks_path}
