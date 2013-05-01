@@ -1,266 +1,57 @@
-$link-color: #0079b7
-
-body
-  font-family: 'Helvetica Neue', Arial, 'メイリオ', Meiryo ,'ヒラギノ角ゴPro W3' ,'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', sans-serif
-  color: $text-color
-  line-height: 1.6em
-  background: $base-color url(bg_wood@2x.png)
-  background-size: 400px 400px
-  +ts-fff
-
-::selection
-  background: $main-color
-  color: $white
-  +ts-fff(0)
-::-moz-selection
-  background: $main-color
-  color: $white
-  +ts-fff(0)
-
-a
-  color: $link-color
-  text-decoration: none
-  &:hover
-    color: $hover-color
-
-b, strong
-  font-weight: bold
-
-.content
-  width: $width
-  margin: 0 auto
-  padding: 50px 0
-
-.section
-  margin: 100px 0
-
-.title
-  font-size: 160% 
-  margin:
-    bottom: 100px
-
-  &.dame
-    margin:
-      bottom: 20px
-
-.zurui-line-square
-  margin: 200px
-  width: 200px
-  height: 200px
-  +line-top-bottom-left-right(.5, .1)
-
-.zurui-line-bottom
-  margin: 300px
-  width: 500px
-  height: 200px
-  +line-bottom(0.3, 0.1)
-
-.dame-kadomaru
-  +border-radius(60px)
-  background: #FFF
-  +box-shadow(rgba(0,0,0,.1) 0 0 3px)
-  width: 800px
-  height: 300px
-  padding: 30px
-  font-size: 14px
-  &.ok
-    +border-radius(6px)
-
-.js-google-maps
-  height: 500px
-  width: 100%
-  background: #FFF
-
-.box-hidden-list
-  @extend .dame-kadomaru
-  +border-radius(6px)
-  width: 550px
-  .list
-    @extend .thumbnails
-    li
-      margin:
-        right: 5px !important
-        bottom: 5px
-  p
-    text-align: right
-    color: $link-color
-    cursor: pointer
-    margin-right: 5px
-    i
-      position: relative
-      .icon-sort-down
-        position: relative
-        top: -2px
-      .icon-sort-up
-        position: relative
-        top: 2px
-
-.kuuhaku
-  height: 1000px
-
 /* ==========================================================================
-/* thumbnail
+/* form
 /* --------------------------------------------------------------------------
-.thumbnail-m
-  +border-radius(3px)
-  height: 32px
-  width: 32px
-  img
-    width: 32px
-    height: 32px
-    +border-radius(3px)
-  a
-    display: inline-block
-    width: 32px
-    height: 32px
-    +transition-duration(.3s)
-    &:hover
-      +opacity(.7)
+button, input[type="submit"]
+  @extend .button
+  +transition-duration(.3s)
+  &:hover
+    cursor: pointer
 
-.thumbnails-m
-  +pie-clearfix
-  li
-    @extend .thumbnail-m
-    float: left
-    margin-right: 5px
+button.button
+  @extend .button
 
-.thumbnail-s
-  @extend .thumbnail-m
-  +border-radius(3px)
-  overflow: hidden
-  height: 24px
-  width: 24px
-  img
-    width: 24px
-    height: 24px
-    +border-radius(3px)
-  a
-    display: inline-block
-    width: 24px
-    height: 24px
-
-.thumbnails-s
-  +pie-clearfix
-  li
-    @extend .thumbnail-s
-    float: left
-    margin-right: 3px
-
-.thumbnail-l
-  @extend .thumbnail-m
-  height: 50px
-  width: 50px
+textarea, input[type="text"], input[type="url"], input[type="email"], input[type="search"]
+  +reset
+  +box-shadow(none)
+  +box-deboss
+  background: #DDD
+  border: 1px solid rgba(0,0,0,.1) !important
+  padding: 5px
   +border-radius(4px)
-  img
-    height: 50px
-    width: 50px
-    +border-radius(4px)
-  a
-    display: inline-block
-    width: 50px
-    height: 50px
+  font-size: 14px
+  line-height: 1.4em
+  +box-shadow(rgba(0,0,0,.1) -1px 1px 1px inset, rgba(255,255,255,1) -1px 1px 0)
+  width: 98%
+  +transition-duration(.3s)
+  outline: 0px none black
+  &:focus
+    background: #FFF
+    color: #000
+    border: 1px solid #52bcec
+    +box-shadow(rgba(0,0,0,.1) -1px 1px 1px inset, $hover_color 0 0 10px)
+  &[disabled='disabled']
+    +reset
+    background: $zurui-gray
 
-.thumbnails-l
-  +pie-clearfix
-  li
-    @extend .thumbnail-l
-    float: left
-    margin-right: 3px
-
-.thumbnail-xl
-  @extend .thumbnail-l
-  height: 64px
-  width: 64px
+select
+  border: 1px solid $line-color
+  font-size: 14px
+  padding: 5px 10px
+  background: #EEE
+  +gradient-top-lighten(#EEE)
   +border-radius(4px)
-  img
-    height: 64px
-    width: 64px
-    +border-radius(4px)
-  a
-    display: inline-block
-    width: 64px
-    height: 64px
+  &:focus
+    +gradient-top-lighten($light-yellow)
 
-.thumbnail-xxl
-  @extend .thumbnail-xxl
-  height: 150px
-  width: 150px
-  +border-radius(6px)
-  img
-    height: 150px
-    width: 150px
-    +border-radius(6px)
+input[type="radio"], input[type="checkbox"]
+  font-size: 14px
 
-.thumbnail-xs
-  @extend .thumbnail-s
-  +border-radius(2px)
-  overflow: hidden
-  height: 16px
-  width: 16px
-  img
-    width: 16px
-    height: 16px
-    +border-radius(2px)
-  a
-    display: inline-block
-    width: 16px
-    height: 16px
-
-.hover-thumbnail
-  a
-    +transition-duration(.3s)
-    &:hover
-      +opacity(.7)
-  img
-    background: #DDD
-
-.thumbnail
-  @extend .thumbnail-l
-
-.thumbnails
-  @extend .thumbnails-l
-
-$box-width: 800px
-$box-height: 400px
-.box
-  background: #444
-  width: $box-width
-  height: $box-height
-  text-align: center
-  padding: 400px 0
-  h3
-    font-weight: bold
-    font-size: 200%
-    margin-bottom: 10px
-  p
-    +helvetica
-    font-size: 16px
-
-.box-444
-  background: #444
-  color: #fff
-  +ts-000(1)
-  h3
-    +ts-000-2x(1)
-    
-.box-B0430B
-  background: #B0430B
-  color: #fff
-  +ts-000(.4)
-  h3
-    +ts-000-2x(.3)
-.box-eee
-  color: #000
-  +ts-fff(1)
-  background: #eee
-  h3
-    +ts-fff-2x(1)
-.box-ffc300
-  color: #000
-  +ts-fff(.4)
-  background: #ffc300
-  h3
-    +ts-fff-2x(.5)
-
-
-
+input[type="button"]:disabled, input[type="submit"]:disabled, button:disabled
+  +opacity(0.2)
+  +ts-000(0)
+  +box-shadow(none)
+  background: #999
+  &:hover
+    background: #999
+    +box-shadow(none)
+    cursor: default
