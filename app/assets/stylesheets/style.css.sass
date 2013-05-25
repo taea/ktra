@@ -65,14 +65,127 @@ input[type="button"]:disabled, input[type="submit"]:disabled, button:disabled
     +box-shadow(none)
     cursor: default
 
+.new-task
+  text-align: center
+  margin:
+    top: 20px
+    bottom: 20px
+  a
+    color: $main-color
+    font-size: 36px
+
 .task
   border-bottom: 1px solid #FFF
-  font-size: 12px
+  +relative
   a
+    height: 45px
+    line-height: 45px
     display: block
     +pie-clearfix
-    background: $main-color
+    background: $color-null
     color: white
+    .title
+      font-size: 14px
     .num
       +num-font
-      font-size: 200%
+      font-size: 27px
+    padding:
+      left: 60px
+    +relative
+    .point
+      +absolute
+      display: block
+      right: 0
+      top: 0
+      height: 45px
+      width: 60px
+      padding-right: 10px
+      text-align: right
+      span
+        margin-right: 5px
+        &.num
+          margin-right: 3px
+          +relative
+          top: 2px
+      i
+        color: rgba(255, 255, 255, .5)
+  .status
+    a
+      +absolute
+      top: 0
+      left: 0
+      display: block
+      width: 45px
+      height: 40px
+      text-align: center
+      color: #FFF
+      background: rgba(255, 255, 255, .3)
+      font-size: 10px
+      padding:
+        left: 0
+        top: 5px
+      line-height: 1.5
+      i
+        font-size: 20px
+        line-height: 20px
+        &.icon-caret-right
+          font-size: 24px
+
+  &.unstarted
+    a
+      background: $color-unstarted
+      color: $color-null
+    .point > i
+      color: $color-null
+    .status > a
+      color: white
+      background: $color-null
+    @for $pt from 1 through 8
+      $pt-color: ''
+      @if $pt == 1
+        $pt-color: $color-pt1 
+      @else if $pt == 2
+        $pt-color: $color-pt2
+      @else if $pt == 3
+        $pt-color: $color-pt3
+      @else if $pt == 5
+        $pt-color: $color-pt5
+      @else if $pt == 8
+        $pt-color: $color-pt8
+      @else
+        $pt-color: $color-null
+      &.pt#{$pt}
+        a
+          color: $pt-color
+        .point > i
+          color: $pt-color
+        .status > a
+          color: white
+          background: $pt-color
+  &.doing, &.done
+    a
+      background: $color-null
+    .status > a
+      background: rgba(255, 255, 255, .3)
+    @for $pt from 1 through 8
+      $pt-color: ''
+      @if $pt == 1
+        $pt-color: $color-pt1 
+      @else if $pt == 2
+        $pt-color: $color-pt2
+      @else if $pt == 3
+        $pt-color: $color-pt3
+      @else if $pt == 5
+        $pt-color: $color-pt5
+      @else if $pt == 8
+        $pt-color: $color-pt8
+      @else
+        $pt-color: $color-null
+      &.pt#{$pt}
+        a
+          color: white
+          background: $pt-color
+        .status > a
+          background: rgba(255, 255, 255, .3)
+  &.done
+    +opacity(.3)
