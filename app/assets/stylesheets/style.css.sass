@@ -1,6 +1,15 @@
 /* ==========================================================================
 /* form
 /* --------------------------------------------------------------------------
+body
+  +main-font
+  text-shadow: none
+  font-size: 12px
+
+.num
+  +num-font
+  font-size: 120%
+
 button, input[type="submit"]
   @extend .button
   +transition-duration(.3s)
@@ -55,3 +64,15 @@ input[type="button"]:disabled, input[type="submit"]:disabled, button:disabled
     background: #999
     +box-shadow(none)
     cursor: default
+
+.task
+  border-bottom: 1px solid #FFF
+  font-size: 12px
+  a
+    display: block
+    +pie-clearfix
+    background: $main-color
+    color: white
+    .num
+      +num-font
+      font-size: 200%
