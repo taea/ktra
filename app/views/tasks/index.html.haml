@@ -1,32 +1,34 @@
-= link_to new_task_path do
-  %i.icon-plus-sign
-%nav
-  -# TODO ステータスによって出し分けナビ
-  %ul.tasks-sort-nav
-    %li= link_to 'UNSTARTED', '#'
-    %li= link_to 'DOING', '#' 
-    %li= link_to 'DONE', '#'
+%p.new-task
+  = link_to new_task_path do
+    %i.icon-plus-sign
 
 %ul.tasks-list
   - @tasks.each do |task|
-    -# FIXME ステータスによってclassを変える
-    %li.task
+    %li.task{class: "#{task.status} pt#{task.point}"}
       =link_to edit_task_path(task) do
         %span.title<>= task.title
         - if task.point.present?
           %span.point<>
             %span.num<>= task.point
             pts
+            %i.icon-chevron-right
         - else
           %span.point<>
-            %span.num<> ─
+            %span<>= '─'
             pts
+            %i.icon-chevron-right
       - if task.status == 'unstarted'
-        %span.status.start<>
-          = link_to 'START', '#'
+        %span.status<>
+          = link_to '#' do
+            %i.icon-caret-right
+            %span<> START
       - if task.status == 'doing'
-        %span.status.finish<>
-          = link_to 'FINISH', '#'
+        %span.status<>
+          = link_to '#' do
+            %i.icon-ok-sign
+            %span<> DONE
       - if task.status == 'done'
-        %span.status.restart<>
-          = link_to 'RESTART', '#'
+        %span.status<>
+          = link_to '#' do
+            %i.icon-repeat
+            %span<> RESTART
