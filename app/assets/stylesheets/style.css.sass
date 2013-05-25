@@ -1,5 +1,5 @@
 /* ==========================================================================
-/* form
+/* ktra
 /* --------------------------------------------------------------------------
 body
   +main-font
@@ -9,61 +9,6 @@ body
 .num
   +num-font
   font-size: 120%
-
-button, input[type="submit"]
-  @extend .button
-  +transition-duration(.3s)
-  &:hover
-    cursor: pointer
-
-button.button
-  @extend .button
-
-textarea, input[type="text"], input[type="url"], input[type="email"], input[type="search"]
-  +reset
-  +box-shadow(none)
-  +box-deboss
-  background: #DDD
-  border: 1px solid rgba(0,0,0,.1) !important
-  padding: 5px
-  +border-radius(4px)
-  font-size: 14px
-  line-height: 1.4em
-  +box-shadow(rgba(0,0,0,.1) -1px 1px 1px inset, rgba(255,255,255,1) -1px 1px 0)
-  width: 98%
-  +transition-duration(.3s)
-  outline: 0px none black
-  &:focus
-    background: #FFF
-    color: #000
-    border: 1px solid #52bcec
-    +box-shadow(rgba(0,0,0,.1) -1px 1px 1px inset, $hover_color 0 0 10px)
-  &[disabled='disabled']
-    +reset
-    background: $zurui-gray
-
-select
-  border: 1px solid $line-color
-  font-size: 14px
-  padding: 5px 10px
-  background: #EEE
-  +gradient-top-lighten(#EEE)
-  +border-radius(4px)
-  &:focus
-    +gradient-top-lighten($light-yellow)
-
-input[type="radio"], input[type="checkbox"]
-  font-size: 14px
-
-input[type="button"]:disabled, input[type="submit"]:disabled, button:disabled
-  +opacity(0.2)
-  +ts-000(0)
-  +box-shadow(none)
-  background: #999
-  &:hover
-    background: #999
-    +box-shadow(none)
-    cursor: default
 
 .new-task
   text-align: center
