@@ -4,7 +4,6 @@
 body
   +main-font
   text-shadow: none
-  font-size: 12px
 
 .num
   +num-font
@@ -54,6 +53,7 @@ body
           top: 2px
       i
         color: rgba(255, 255, 255, .5)
+        display: inline !important
   .status
     a
       +absolute
@@ -134,3 +134,152 @@ body
           background: rgba(255, 255, 255, .3)
   &.done
     +opacity(.3)
+
+label
+  display: block
+  margin-bottom: 5px
+
+input, select, textarea
+  outline: none
+
+input[type="text"], textarea
+  width: 98%
+  margin-right: 20px
+  background: $text-color
+  padding: 10px
+  border: none
+  color: $white
+  +border-radius(4px)
+  font-size: 12px
+  +transition-duration(.3s)
+  &:focus
+    background: $text-color
+    color: white
+  &.task-title
+    font-size: 18px
+  &.memo
+    height: 100px
+
+select
+  font-size: 16px
+  color: $text-color
+  background: #FFF
+  border: 1px solid $color-unstarted
+  padding: 5px
+  +border-radius(4px)
+  +transition-duration(.3s)
+  &:focus
+    background: $text-color
+    color: white
+
+.actions
+  i
+    display: block
+    width: 100%
+    font-size: 30px
+    text-align: center
+    margin-bottom: 10px
+  input[type="submit"]
+    width: 100%
+    background: white
+    padding: 20px
+    font-size: 24px
+    text-align: center
+    border: none
+    color: $text-color
+    +relative
+    top: 2px
+
+.edit
+  background: $color-unstarted
+  color: $text-color
+  h2
+    text-align: center
+    font-size: 40px
+    padding-top: 20px
+    margin: 20px auto
+    +fw-300
+  .status-button
+    text-align: center
+    margin:
+      bottom: 20px
+    font-size: 24px
+    a
+      display: block
+      height: 50px
+      line-height: 50px
+      width: 200px
+      +border-radius
+      background: $text-color 
+      +border-radius(4px)
+      color: white
+      margin: 20px auto
+
+  @for $pt from 1 through 8
+    $pt-color: ''
+    @if $pt == 1
+      $pt-color: $color-pt1 
+    @else if $pt == 2
+      $pt-color: $color-pt2
+    @else if $pt == 3
+      $pt-color: $color-pt3
+    @else if $pt == 5
+      $pt-color: $color-pt5
+    @else if $pt == 8
+      $pt-color: $color-pt8
+    @else
+      $pt-color: $text-color
+    &.pt#{$pt}
+      color: $pt-color
+      input[type="text"], select, textarea
+        background: $pt-color
+        color: white
+        &:focus
+          background: white
+          color: $pt-color 
+      input[type="submit"]
+        color: $pt-color 
+      .status-button > a
+        background: $pt-color
+
+  &.doing
+    @for $pt from 1 through 8
+      $pt-color: ''
+      @if $pt == 1
+        $pt-color: $color-pt1 
+      @else if $pt == 2
+        $pt-color: $color-pt2
+      @else if $pt == 3
+        $pt-color: $color-pt3
+      @else if $pt == 5
+        $pt-color: $color-pt5
+      @else if $pt == 8
+        $pt-color: $color-pt8
+      @else
+        $pt-color: $text-color
+      &.pt#{$pt}
+        background: $pt-color
+        color: white
+        input[type="text"], select, textarea
+          background: rgba(0,0,0,.1)
+          color: white
+          &:focus
+            background: white
+            color: $pt-color
+        select
+          border: darken($pt-color, 10%)
+          &:focus
+            border: darken($pt-color, 10%)
+        input[type="submit"]
+          color: $pt-color
+        .status-button > a
+          background: white
+          color: $pt-color
+
+.form
+  padding: 20px
+  overflow: hidden
+
+.field
+  +pie-clearfix
+  margin-bottom: 20px
