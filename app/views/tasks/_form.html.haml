@@ -1,25 +1,28 @@
 = form_for(@task) do |f|
-  - if @task.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@task.errors.count, "error")
-        prohibited this task from being saved:
-      %ul
-        - @task.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label :title, 'TASK'
-    = f.text_field :title
-  .field
-    = f.label :point, 'POINT'
-    = f.select :point, [[1],[2],[3],[5],[8]], include_blank: '---'
-  -# FIXME hidden_fieldにして現在のSTATUSに応じてSTART, FINISH, RESTART ボタンを表示
-  .field
-    = f.label :status, 'STATUS'
-    = f.select :status, [['unstarted'],['doing'],['done']]
-  .field
-    = f.label :memo, 'MEMO'
-    %br/
-    = f.text_area :memo
+  .form
+    - if @task.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@task.errors.count, "error")
+          prohibited this task from being saved:
+        %ul
+          - @task.errors.full_messages.each do |msg|
+            %li= msg
+    .field
+      = f.label :title, 'title'
+      = f.text_field :title, class: 'task-title'
+    -# FIXME ラジオボタンに変えるかも
+    .field
+      = f.label :point, 'POINT'
+      = f.select :point, [[1],[2],[3],[5],[8]], include_blank: '---'
+    -# FIXME hidden_fieldにして現在のSTATUSに応じてSTART, FINISH, RESTART ボタンを表示
+    .field
+      = f.label :status, 'STATUS'
+      = f.select :status, [['unstarted'],['doing'],['done']]
+    .field
+      = f.label :memo, 'MEMO'
+      = f.text_area :memo, class: 'memo'
   .actions
-    = f.submit
+    %i.icon-chevron-down
+    -# FIXME submitしたらindexに戻りたい
+    = f.submit "SAVE", action: :index
