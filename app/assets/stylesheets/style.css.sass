@@ -5,6 +5,9 @@ body
   +main-font
   text-shadow: none
 
+a
+  text-decoration: none
+
 .num
   +num-font
   font-size: 120%
@@ -70,6 +73,9 @@ body
         left: 0
         top: 5px
       line-height: 1.5
+      span
+        display: block
+        width: 45px
       i
         font-size: 20px
         line-height: 20px
@@ -189,6 +195,7 @@ select
     color: $text-color
     +relative
     top: 2px
+    +border-radius(none)
 
 .edit
   background: $color-unstarted
