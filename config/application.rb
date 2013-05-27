@@ -61,5 +61,6 @@ module Ktra
 
     config.sass.line_comments = false
     config.sass.cache = false
+    config.assets.initialize_on_precompile = false
   end
 end
