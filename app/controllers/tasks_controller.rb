@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.find(:all, :conditions => {:status => ['unstarted', 'doing']}, :order => "status ASC, updated_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
