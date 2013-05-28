@@ -4,8 +4,10 @@
 body
   +main-font
   text-shadow: none
+  background: $base-color
 
 a
+  color: white
   text-decoration: none
 
 .num
@@ -18,19 +20,22 @@ a
     top: 20px
     bottom: 20px
   a
-    color: $main-color
+    color: white
     font-size: 36px
 
 .task
-  border-bottom: 1px solid #FFF
   +relative
+  border: none
+  margin-bottom: 0
   a
+    box-sizing: border-box
     height: 45px
     line-height: 45px
     display: block
     +pie-clearfix
     background: $color-null
     color: white
+    border-bottom: 1px solid rgba(0,0,0,.1) !important
     .title
       font-size: 14px
     .num
@@ -64,15 +69,16 @@ a
       left: 0
       display: block
       width: 45px
-      height: 40px
+      height: 45px
       text-align: center
       color: #FFF
-      background: rgba(255, 255, 255, .3)
+      background: rgba(0, 0, 0, .1)
       font-size: 10px
       padding:
         left: 0
         top: 5px
       line-height: 1.5
+      border: none !important
       span
         display: block
         width: 45px
@@ -137,7 +143,7 @@ a
           color: white
           background: $pt-color
         .status > a
-          background: rgba(255, 255, 255, .3)
+          background: rgba(0, 0, 0, .1)
   &.done
     +opacity(.3)
 
