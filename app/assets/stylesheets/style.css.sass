@@ -36,13 +36,16 @@ a
     background: $color-null
     color: white
     border-bottom: 1px solid rgba(0,0,0,.1) !important
+    +nowrap
     .title
       font-size: 14px
+      width: 300px
     .num
       +num-font
       font-size: 27px
     padding:
       left: 60px
+      right: 60px
     +relative
     .point
       +absolute
@@ -50,9 +53,10 @@ a
       right: 0
       top: 0
       height: 45px
-      width: 60px
+      width: 50px
       padding-right: 10px
       text-align: right
+      font-size: 10px
       span
         margin-right: 5px
         &.num
@@ -65,6 +69,7 @@ a
   .status
     a
       +absolute
+      box-sizing: border-box
       top: 0
       left: 0
       display: block
@@ -76,6 +81,7 @@ a
       font-size: 10px
       padding:
         left: 0
+        right: 0
         top: 5px
       line-height: 1.5
       border: none !important
@@ -97,6 +103,7 @@ a
     .status > a
       color: white
       background: $color-null
+      border-bottom: 1px solid (rgba(0,0,0,.1))
     @for $pt from 1 through 8
       $pt-color: ''
       @if $pt == 1
@@ -119,6 +126,7 @@ a
         .status > a
           color: white
           background: $pt-color
+          border-bottom: 1px solid (rgba(0,0,0,.1))
   &.doing, &.done
     a
       background: $color-null
@@ -155,8 +163,7 @@ input, select, textarea
   outline: none
 
 input[type="text"], textarea
-  width: 98%
-  margin-right: 20px
+  width: 300px
   background: $text-color
   padding: 10px
   border: none
@@ -168,7 +175,7 @@ input[type="text"], textarea
     background: $text-color
     color: white
   &.task-title
-    font-size: 18px
+    font-size: 14px
   &.memo
     height: 100px
 
@@ -185,6 +192,8 @@ select
     color: white
 
 .actions
+  width: 100px
+  margin: 0 auto
   i
     display: block
     width: 100%
@@ -192,41 +201,49 @@ select
     text-align: center
     margin-bottom: 10px
   input[type="submit"]
-    width: 100%
     background: white
-    padding: 20px
-    font-size: 24px
+    font-size: 18px
     text-align: center
     border: none
     color: $text-color
     +relative
     top: 2px
-    +border-radius(none)
+    margin: 0 auto
+    width: 100px
+    height: 100px
+    line-height: 50px
+    +border-radius(50px)
 
 .edit
   background: $color-unstarted
   color: $text-color
+  padding: 30px 0
+  overflow: hidden
   h2
     text-align: center
-    font-size: 40px
-    padding-top: 20px
     margin: 20px auto
     +fw-300
+    font-size: 18px
   .status-button
+    width: 100px
     text-align: center
-    margin:
+    font-size: 16px
+    margin: 0 auto
       bottom: 20px
-    font-size: 24px
     a
+      font-size: 11px
+      width: 100px
+      height: 100px
       display: block
-      height: 50px
-      line-height: 50px
-      width: 200px
-      +border-radius
+      +border-radius(50px)
+      line-height: 75px
       background: $text-color 
-      +border-radius(4px)
       color: white
-      margin: 20px auto
+      i
+        font-size: 40px
+        display: block
+        +relative
+        top: 28px
 
   @for $pt from 1 through 8
     $pt-color: ''
@@ -248,10 +265,11 @@ select
         background: $pt-color
         color: white
         &:focus
-          background: white
+          background: $zurui-gray
           color: $pt-color 
       input[type="submit"]
-        color: $pt-color 
+        background: $pt-color 
+        color: white
       .status-button > a
         background: $pt-color
 
@@ -284,13 +302,17 @@ select
           &:focus
             border: darken($pt-color, 10%)
         input[type="submit"]
+          background: white
           color: $pt-color
         .status-button > a
           background: white
           color: $pt-color
 
 .form
-  padding: 20px
+  width: 320px
+  margin: 0 auto
+  padding: 20px 10px
+    top: 0
   overflow: hidden
 
 .field
