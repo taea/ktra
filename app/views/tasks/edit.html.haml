@@ -1,21 +1,22 @@
 .edit{class: "#{@task.status} pt#{@task.point}"}
-  - case @task.status
-  - when 'unstarted'
-    %h2 UNTARTED TASK
-    %p.status-button
-      = link_to '#' do
-        %i.icon-play-sign
-        START
-  - when 'doing'
-    %h2 DOING TASK
-    %p.status-button
-      = link_to '#' do
-        %i.icon-ok-sign
-        DONE
-  - when 'done'
-    %h2 DONE TASK
-    %p.status-button
-      = link_to '#' do
-        %i.icon-repeat
-        RESTART
-  = render 'form'
+  .form
+    - case @task.status
+    - when 'unstarted'
+      %h2 UNSTARTED
+      %p.status-button
+        = link_to '#' do
+          %i.icon-play-sign
+          START
+    - when 'doing'
+      %h2 DOING
+      %p.status-button
+        = link_to '#' do
+          %i.icon-ok-sign
+          DONE
+    - when 'done'
+      %h2 DONE
+      %p.status-button
+        = link_to '#' do
+          %i.icon-repeat
+          RESTART
+    = render 'form'
