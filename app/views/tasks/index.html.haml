@@ -10,12 +10,12 @@
         - if task.point.present?
           %span.point<>
             %span.num<>= task.point
-            pts
+            pt
             %i.icon-chevron-right
         - else
           %span.point<>
             %span<>= '─'
-            pts
+            pt
             %i.icon-chevron-right
       - if task.status == 'unstarted'
         %span.status<>
