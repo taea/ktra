@@ -23,6 +23,9 @@ a
     color: white
     font-size: 36px
 
+input[type="submit"], button, select
+  -webkit-appearance: none
+
 .task
   +relative
   border: none
@@ -181,11 +184,11 @@ input[type="text"], textarea
 
 select
   font-size: 16px
-  color: $text-color
-  background: #FFF
+  color: #FFF
+  background: $text-color
   border: 1px solid $color-unstarted
   padding: 5px
-  +border-radius(4px)
+  +border-left-radius(4px)
   +transition-duration(.3s)
   &:focus
     background: $text-color
@@ -200,51 +203,56 @@ select
     font-size: 30px
     text-align: center
     margin-bottom: 10px
-  input[type="submit"]
-    background: white
-    font-size: 18px
+  input[type="submit"], button
+    color: white
+    background: $text-color
+    width: 70px
+    height: 70px
+    +border-radius(35px)
+    font-size: 10px
     text-align: center
     border: none
-    color: $text-color
+    margin-left: 10px
+    display: block
+    line-height: 1
     +relative
-    top: 2px
-    margin: 0 auto
-    width: 100px
-    height: 100px
-    line-height: 50px
-    +border-radius(50px)
-    -webkit-appearance: none
+    left: 5px
+    i
+      font-size: 24px
+      display: block
+      line-height: 20px
+      +relative
+      top: 2px
+
 
 .edit
   background: $color-unstarted
   color: $text-color
   padding: 30px 0
   overflow: hidden
-  h2
-    text-align: center
-    margin: 20px auto
-    +fw-300
-    font-size: 18px
-  .status-button
-    width: 100px
-    text-align: center
-    font-size: 16px
-    margin: 0 auto
-      bottom: 20px
-    a
-      font-size: 11px
-      width: 100px
-      height: 100px
-      display: block
-      +border-radius(50px)
-      line-height: 75px
-      background: $text-color 
+
+  .form-header
+    +pie-clearfix
+    h2 
+      float: left
+      width: 180px
+      text-align: right
+      +fw-300
+      font-size: 18px
+    button
       color: white
+      background: $text-color
+      width: 60px
+      height: 60px
+      +border-radius(30px)
+      font-size: 10px
+      text-align: center
+      border: none
+      margin-left: 10px
       i
-        font-size: 40px
+        font-size: 18px
         display: block
-        +relative
-        top: 28px
+        line-height: 25px
 
   @for $pt from 1 through 8
     $pt-color: ''
@@ -268,11 +276,9 @@ select
         &:focus
           background: $zurui-gray
           color: $pt-color 
-      input[type="submit"]
+      input[type="submit"], button
         background: $pt-color 
         color: white
-      .status-button > a
-        background: $pt-color
 
   &.doing
     @for $pt from 1 through 8
@@ -302,10 +308,7 @@ select
           border: darken($pt-color, 10%)
           &:focus
             border: darken($pt-color, 10%)
-        input[type="submit"]
-          background: white
-          color: $pt-color
-        .status-button > a
+        input[type="submit"], button
           background: white
           color: $pt-color
 
@@ -328,3 +331,4 @@ select
   line-height: 1.4
   a
     color: white
+
