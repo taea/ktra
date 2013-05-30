@@ -1,22 +1,26 @@
 .edit{class: "#{@task.status} pt#{@task.point}"}
   .form
-    - case @task.status
-    - when 'unstarted'
-      %h2 UNSTARTED
-      %p.status-button
-        = link_to '#' do
-          %i.icon-play-sign
-          START
-    - when 'doing'
-      %h2 DOING
-      %p.status-button
-        = link_to '#' do
-          %i.icon-ok-sign
+    .form-header
+      - case @task.status
+      - when 'unstarted'
+        %h2
+          STANDBY
+          %i.icon-arrow-right
+        = form_for(@task) do |f|
+          = f.hidden_field :status, value: 'doing' 
+          = f.button " #{content_tag(:i, '', class: 'icon-play')}START".html_safe, type: :submit
+      - when 'doing'
+        %h2
+          DOING
+          %i.icon-arrow-right
+        = form_for(@task) do |f|
+          = f.hidden_field :status, value: 'done' 
+          = f.button "#{content_tag(:i, '', class: 'icon-ok')}DONE".html_safe, type: :submit
+      - when 'done'
+        %h2
           DONE
-    - when 'done'
-      %h2 DONE
-      %p.status-button
-        = link_to '#' do
-          %i.icon-repeat
-          RESTART
+          %i.icon-arrow-right
+        = form_for(@task) do |f|
+          = f.hidden_field :status, value: 'unstarted' 
+          = f.button "#{content_tag(:i, '', class: 'icon-repeat')}RESTART".html_safe, type: :submit
     = render 'form'
