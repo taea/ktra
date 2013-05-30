@@ -14,10 +14,12 @@
   .field
     = f.label :point, 'POINT'
     = f.select :point, [[1],[2],[3],[5],[8]], include_blank: '---'
+    %i.icon-chevron-down.select-caret
   -# FIXME hidden_fieldにして現在のSTATUSに応じてSTART, FINISH, RESTART ボタンを表示
   .field
     = f.label :status, 'STATUS'
     = f.select :status, [['unstarted'],['doing'],['done']]
+    %i.icon-chevron-down.select-caret
   .field
     = f.label :memo, 'MEMO'
     = f.text_area :memo, class: 'memo'
