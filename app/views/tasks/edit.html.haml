@@ -21,6 +21,6 @@
           DONE
           %i.icon-arrow-right
         = form_for(@task) do |f|
-          = f.hidden_field :status, value: 'unstarted' 
+          = f.hidden_field :status, value: 'doing' 
           = f.button "#{content_tag(:i, '', class: 'icon-repeat')}RESTART".html_safe, type: :submit
     = render 'form'
