@@ -19,16 +19,16 @@
             %i.icon-chevron-right
       - if task.status == 'unstarted'
         %span.status<>
-          = link_to '#' do
-            %i.icon-play-sign
-            %span<> START
+          = form_for(task) do |f|
+            = f.hidden_field :status, value: 'doing' 
+            = f.button " #{content_tag(:i, '', class: 'icon-play-sign')}START".html_safe, type: :submit
       - if task.status == 'doing'
         %span.status<>
-          = link_to '#' do
-            %i.icon-ok-sign
-            %span<> DONE
+          = form_for(task) do |f|
+            = f.hidden_field :status, value: 'done' 
+            = f.button "#{content_tag(:i, '', class: 'icon-ok-sign')}DONE".html_safe, type: :submit
       - if task.status == 'done'
         %span.status<>
-          = link_to '#' do
-            %i.icon-repeat
-            %span<> RESTART
+          = form_for(task) do |f|
+            = f.hidden_field :status, value: 'doing' 
+            = f.button "#{content_tag(:i, '', class: 'icon-repeat')}RESTART".html_safe, type: :submit

@@ -70,7 +70,7 @@ input[type="submit"], button, select
         color: rgba(255, 255, 255, .5)
         display: inline !important
   .status
-    a
+    input[type="submit"], button 
       +absolute
       box-sizing: border-box
       top: 0
@@ -103,9 +103,9 @@ input[type="submit"], button, select
       color: $color-null
     .point > i
       color: $color-null
-    .status > a
+    .status > button
       color: white
-      background: $color-null
+      background: $color-null !important
       border-bottom: 1px solid (rgba(0,0,0,.1))
     @for $pt from 1 through 8
       $pt-color: ''
@@ -126,14 +126,15 @@ input[type="submit"], button, select
           color: $pt-color
         .point > i
           color: $pt-color
-        .status > a
+        .status > input[type="submit"], button
           color: white
-          background: $pt-color
+          background: $pt-color !important
           border-bottom: 1px solid (rgba(0,0,0,.1))
+
   &.doing, &.done
     a
       background: $color-null
-    .status > a
+    .status > button
       background: rgba(255, 255, 255, .3)
     @for $pt from 1 through 8
       $pt-color: ''
@@ -153,7 +154,7 @@ input[type="submit"], button, select
         a
           color: white
           background: $pt-color
-        .status > a
+        .status > input[type="submit"], button
           background: rgba(0, 0, 0, .1)
   &.done
     +opacity(.3)
