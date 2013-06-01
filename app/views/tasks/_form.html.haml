@@ -10,12 +10,17 @@
   .field
     = f.label :title, 'TITLE'
     = f.text_field :title, class: 'task-title'
-  -# FIXME ラジオボタンに変えるかも
-  .field
-    = f.label :point, 'POINT'
-    = f.select :point, [[1],[2],[3],[5],[8]], include_blank: '---'
-    %i.icon-chevron-down.select-caret
-  -# FIXME hidden_fieldにして現在のSTATUSに応じてSTART, FINISH, RESTART ボタンを表示
+  .field.point-radio
+    = f.radio_button :point, 1
+    = f.label :point, '1pt', for: 'task_point_1'
+    = f.radio_button :point, 2
+    = f.label :point, '2pt', for: 'task_point_2'
+    = f.radio_button :point, 3
+    = f.label :point, '3pt', for: 'task_point_3'
+    = f.radio_button :point, 5
+    = f.label :point, '5pt', for: 'task_point_5'
+    = f.radio_button :point, 8
+    = f.label :point, '8pt', for: 'task_point_8'
   .field
     = f.label :status, 'STATUS'
     = f.select :status, [['unstarted'],['doing'],['done']]
