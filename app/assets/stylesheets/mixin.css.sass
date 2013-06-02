@@ -292,6 +292,12 @@
   -moz-opacity: $op
   opacity: $op
 
+=placeholder-color($color)
+  &:-moz-placeholder
+    color: $color
+  &::-webkit-input-placeholder
+    color: $color
+
 // ==========================================================================
 // unique design elements
 // --------------------------------------------------------------------------

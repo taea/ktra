@@ -1,6 +1,50 @@
-%p.new-task
-  = link_to new_task_path do
-    %i.icon-plus-sign
+.form.new-task
+  = form_for(@task) do |f|
+    - if @task.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@task.errors.count, "error")
+          prohibited this task from being saved:
+        %ul
+          - @task.errors.full_messages.each do |msg|
+            %li= msg
+    .field
+      = f.text_field :title, class: 'task-title', placeholder: 'NEW TASK TITLE'
+    .field.point-radio
+      %ul
+        %li.point-radio-text EASY
+        %li.pt1
+          = f.radio_button :point, 1
+          = f.label :point, for: 'task_point_1', checked: 'yes' do
+            %span.num<> 1
+            pt
+        %li.pt2
+          = f.radio_button :point, 2
+          = f.label :point, for: 'task_point_2' do
+            %span.num<> 2
+            pt
+        %li.pt3
+          = f.radio_button :point, 3
+          = f.label :point, for: 'task_point_3' do
+            %span.num<> 3
+            pt
+        %li.pt5
+          = f.radio_button :point, 5
+          = f.label :point, for: 'task_point_5' do
+            %span.num<> 5
+            pt
+        %li.pt8
+          = f.radio_button :point, 8
+          = f.label :point, for: 'task_point_8' do
+            %span.num<> 8
+            pt
+        %li.point-radio-text HARD
+
+      = f.hidden_field :status, value: 'unstarted' 
+    .actions
+      %i.icon-arrow-down
+      = f.button "#{content_tag(:i, '', class: 'icon-plus-sign')}".html_safe, type: :submit
+  
 
 %ul.tasks-list
   - @tasks.each do |task|
