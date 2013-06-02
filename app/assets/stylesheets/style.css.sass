@@ -327,20 +327,26 @@ select
   margin-bottom: 20px
   &.point-radio
     ul
+      +pie-clearfix
       +relative
-      left: 30px
+      left: 0
     li
       float: left
       +relative
-      margin-right: -15px
+      left: 0
+      margin-right: 5px
       &.point-radio-text
         font-size: 10px
         line-height: 40px
+        display: inline
       &:first-child
-        left: -30px
+        position: relative
+        left: 0
       &:last-child
-        left: -10px
-        
+        position: relative
+        left: 0
+      input
+        display: none
       label 
         display: inline-block
         background: white
@@ -349,10 +355,10 @@ select
         height: 40px
         +border-radius(22px)
         +relative
-        left: -30px
+        left: 0px
         text-align: center
         font-size: 10px
-        border: 1px solid white
+        border: 1px solid rgba(0,0,0,.05)
         .num
           display: block
           font-size: 24px
