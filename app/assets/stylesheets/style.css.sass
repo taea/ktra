@@ -325,6 +325,66 @@ select
 .field
   +pie-clearfix
   margin-bottom: 20px
+  &.point-radio
+    ul
+      +relative
+      left: 30px
+    li
+      float: left
+      +relative
+      margin-right: -15px
+      &.point-radio-text
+        font-size: 10px
+        line-height: 40px
+      &:first-child
+        left: -30px
+      &:last-child
+        left: -10px
+        
+      label 
+        display: inline-block
+        background: white
+        color: $text-color
+        width: 40px
+        height: 40px
+        +border-radius(22px)
+        +relative
+        left: -30px
+        text-align: center
+        font-size: 10px
+        border: 1px solid white
+        .num
+          display: block
+          font-size: 24px
+          line-height: 24px
+          +relative
+          top: 5px
+        &:hover
+          cursor: pointer
+      input:checked+label
+        background: $text-color
+        color: white
+          
+      @for $pt from 1 through 8
+        $pt-color: ''
+        @if $pt == 1
+          $pt-color: $color-pt1 
+        @else if $pt == 2
+          $pt-color: $color-pt2
+        @else if $pt == 3
+          $pt-color: $color-pt3
+        @else if $pt == 5
+          $pt-color: $color-pt5
+        @else if $pt == 8
+          $pt-color: $color-pt8
+        @else
+          $pt-color: $text-color
+        &.pt#{$pt}
+          label
+            color: $pt-color
+          input:checked+label     
+            background: $pt-color
+            color: white
 
 .footer
   padding: 30px 0
