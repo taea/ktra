@@ -1,5 +1,9 @@
 .edit{class: "#{@task.status} pt#{@task.point}"}
   .form
+    %p.destroy
+      = link_to task_path(@task), method: 'delete', confirm: '本当に削除してよろしいですか？' do
+        DELETE
+        %i.icon-remove-sign
     .form-header
       - case @task.status
       - when 'unstarted'
