@@ -1,12 +1,14 @@
 ---
 fonts/DIN_Medium.ttf: fonts/DIN_Medium-af08378625d16a163f2795025a474b61.ttf
 fonts/DIN_Medium/index.ttf: fonts/DIN_Medium-af08378625d16a163f2795025a474b61.ttf
+ktra-header-logo@2x.png: ktra-header-logo@2x-eaee74e1a01999c77a98cb5d3934d9e4.png
+ktra-header-logo@2x/index.png: ktra-header-logo@2x-eaee74e1a01999c77a98cb5d3934d9e4.png
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 application.js: application-1c23785370d13f163b08512aab74d78c.js
 application/index.js: application-1c23785370d13f163b08512aab74d78c.js
-application.css: application-986a69a7269ecd52c103649cf7b72ca1.css
-application/index.css: application-986a69a7269ecd52c103649cf7b72ca1.css
+application.css: application-d83158243548f2fec032b78c966b3895.css
+application/index.css: application-d83158243548f2fec032b78c966b3895.css
 FontAwesome.otf: FontAwesome-a9ab9789ce18bb02e5c10c7c3b908ee0.otf
 FontAwesome/index.otf: FontAwesome-a9ab9789ce18bb02e5c10c7c3b908ee0.otf
 fontawesome-webfont.eot: fontawesome-webfont-b49e662c23140944a17d6301d2259446.eot
