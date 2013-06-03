@@ -40,10 +40,6 @@
           pt
       %li.point-radio-text HARD
   .field
-    = f.label :status, 'STATUS'
-    = f.select :status, [['unstarted'],['doing'],['done']]
-    %i.icon-chevron-down.select-caret
-  .field
     = f.label :memo, 'MEMO'
     = f.text_area :memo, class: 'memo'
   .actions
