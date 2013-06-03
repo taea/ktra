@@ -18,8 +18,11 @@
     %link(rel='apple-touch-icon' href= "")/
     %link(rel='shortcut-icon' href= "favicon.ico")/
   %body
-    %header
-      %h1= link_to "Ktra", root_path
+    %header.header
+      %h1= link_to "K-tra!", root_path
+      .user
+        %p.image= link_to image_tag('https://si0.twimg.com/profile_images/3703695062/b57c347a35c1fe6c4e09eca37eb7b327_normal.jpeg', alt: 'ken_c_lo'), '#'
+        %p.name= link_to 'ken_c_lo', '#'
     = yield
     %footer.footer
       %small

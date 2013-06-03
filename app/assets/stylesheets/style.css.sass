@@ -462,6 +462,43 @@ select
         font-size: 40px
         line-height: 40px
 
+.header
+  width: 300px
+  margin: 10px auto 15px
+  padding: 0 10px
+  +clearfix
+  h1 > a
+    display: block
+    +num-font
+    font-size: 25px
+    padding-left: 45px
+    background: url(ktra-header-logo@2x.png) no-repeat left 7px
+    background-size: 45px 33px
+    height: 40px
+    line-height: 62px
+    width: 70px
+    float: left
+    &:hover
+      +opacity(.9)
+
+.user
+  float: right
+  +clearfix
+  +relative
+  top: 10px
+  p
+    float: right
+    margin-left: 5px
+    font-size: 10px
+    line-height: 30px
+    &:hover
+      +opacity(.8)
+    &.image
+      img
+        width: 30px
+        height: 30px
+        +border-radius(30px)
+    
 .footer
   padding: 30px 0
   text-align: center
@@ -470,4 +507,3 @@ select
   line-height: 1.4
   a
     color: white
-
