@@ -232,6 +232,17 @@ select
   padding: 30px 0
   overflow: hidden
 
+  .destroy
+    text-align: right
+    line-height: 20px
+    a
+      color: $text-color
+      font-size: 10px
+      i
+        font-size: 20px
+        +relative
+        top: 3px
+      
   .form-header
     +pie-clearfix
     margin-bottom: 20px
@@ -256,7 +267,6 @@ select
         font-size: 18px
         display: block
         line-height: 25px
-
   @for $pt from 1 through 8
     $pt-color: ''
     @if $pt == 1
@@ -282,8 +292,13 @@ select
       input[type="submit"], button
         background: $pt-color 
         color: white
+      .destroy > a
+        color: $pt-color
+        
 
   &.doing
+    .destroy > a
+      color: white
     @for $pt from 1 through 8
       $pt-color: ''
       @if $pt == 1
@@ -314,6 +329,8 @@ select
         input[type="submit"], button
           background: white
           color: $pt-color
+        .destroy > a
+          color: white
 
 .form
   width: 320px
