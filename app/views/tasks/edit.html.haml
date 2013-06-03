@@ -20,6 +20,9 @@
         = form_for(@task) do |f|
           = f.hidden_field :status, value: 'done' 
           = f.button "#{content_tag(:i, '', class: 'icon-ok')}DONE".html_safe, type: :submit
+        = form_for(@task) do |f|
+          = f.hidden_field :status, value: 'unstarted' 
+          = f.button "#{content_tag(:i, '', class: 'icon-pause')}STOP".html_safe, type: :submit
       - when 'done'
         %h2
           DONE
