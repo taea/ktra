@@ -11,6 +11,7 @@
           STANDBY
           %i.icon-arrow-right
         = form_for(@task) do |f|
+          = f.hidden_field :started_at, value: Time.now.to_s(:db)
           = f.hidden_field :status, value: 'doing' 
           = f.button " #{content_tag(:i, '', class: 'icon-play')}START".html_safe, type: :submit
       - when 'doing'
@@ -18,6 +19,7 @@
           DOING
           %i.icon-arrow-right
         = form_for(@task) do |f|
+          = f.hidden_field :finished_at, value: Time.now.to_s(:db)
           = f.hidden_field :status, value: 'done' 
           = f.button "#{content_tag(:i, '', class: 'icon-ok')}DONE".html_safe, type: :submit
         = form_for(@task) do |f|
@@ -28,6 +30,20 @@
           DONE
           %i.icon-arrow-right
         = form_for(@task) do |f|
+          = f.hidden_field :started_at, value: Time.now.to_s(:db)
           = f.hidden_field :status, value: 'doing' 
           = f.button "#{content_tag(:i, '', class: 'icon-repeat')}RESTART".html_safe, type: :submit
     = render 'form'
+    .time
+      %dl
+        %dt START
+        - if @task.started_at
+          %dd.num= @task.started_at.to_s(:db)
+        - else
+          %dd= '---'
+        %dt FINISH
+        - if @task.finished_at
+          %dd.num= @task.finished_at.to_s(:db)
+        - else
+          %dd= '---'
+      
