@@ -40,8 +40,7 @@
           pt
       %li.point-radio-text HARD
   .field
-    = f.label :memo, 'MEMO'
-    = f.text_area :memo, class: 'memo'
+    = f.text_area :memo, class: 'memo', placeholder: 'MEMO'
   .actions
     %i.icon-arrow-down
     = f.button "#{content_tag(:i, '', class: 'icon-save')}SAVE".html_safe, type: :submit
