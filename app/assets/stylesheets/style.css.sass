@@ -167,17 +167,21 @@ input, select, textarea
   outline: none
 
 input[type="text"], textarea
-  width: 280px
+  width: 280px - 20px
   background: $text-color
   padding: 10px
+    right: 30px
   border: none
   color: $white
   +border-radius(4px)
   font-size: 12px
   +transition-duration(.3s)
+  +placeholder-color(rgba(0,0,0,.2))
   &:focus
     background: $text-color
     color: white
+    padding-right: 10px
+    width: 280px
   &.task-title
     font-size: 14px
   &.memo
@@ -232,6 +236,11 @@ select
   padding: 10px 0 30px
   overflow: hidden
 
+  .icon-pencil
+    color: rgba(0,0,0,.2)
+    +relative
+    left: -25px
+
   .destroy
     text-align: right
     line-height: 20px
@@ -255,8 +264,6 @@ select
       margin-right: 5px
     dd
       margin-right: 10px
-      
-      
       
   .form-header
     +pie-clearfix
@@ -426,14 +433,21 @@ select
             color: white
 
 .new-task
+  text-align: left
   padding: 0
   input[type="text"]
     background: rgba(0,0,0,.1)
-    +placeholder-color(rgba(255,255,255,.7))
+    +placeholder-color(rgba(0,0,0,.2))
+    +relative
+    left: 10px
     &:focus
       +placeholder-color(rgba(0,0,0,.2))
       color: $text-color
       background: white
+  .icon-pencil
+    color: rgba(0,0,0,.2)
+    +relative
+    left: -15px
   .point-radio
     +relative
     left: 12px

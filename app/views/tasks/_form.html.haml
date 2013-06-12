@@ -8,8 +8,8 @@
         - @task.errors.full_messages.each do |msg|
           %li= msg
   .field
-    = f.label :title, 'TITLE'
-    = f.text_field :title, class: 'task-title'
+    = f.text_field :title, class: 'task-title', placeholder: 'TITLE'
+    %i.icon-pencil
   .field.point-radio
     %ul
       %li.point-radio-text EASY
