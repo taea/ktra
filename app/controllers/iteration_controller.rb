@@ -1,0 +1,2 @@
+class IterationController < ApplicationController
+end
