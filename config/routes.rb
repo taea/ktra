@@ -1,5 +1,9 @@
 Ktra::Application.routes.draw do
-  resources :tasks
+  resources :tasks do
+    member do
+      post 'done'
+    end
+  end
   root :to => 'tasks#index'
 
   # The priority is based upon order of creation:
