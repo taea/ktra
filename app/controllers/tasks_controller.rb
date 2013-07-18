@@ -12,7 +12,7 @@ class TasksController < ApplicationController
     end
   end
   
-  def done do
+  def done
     member do
       post @this_iteration
     end
