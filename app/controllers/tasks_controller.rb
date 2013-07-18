@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.find(:all, :conditions => {:status => ['unstarted', 'doing', 'done']}, :order => "status ASC, updated_at DESC")
     @task = Task.new
-    @this_iteration = Iteration.where(start_date: Time.now.in_time_zone.beginning_of_week.to_date).first
+    @this_iteration = Iteration.for_week
 
     respond_to do |format|
       format.html # index.html.erb
