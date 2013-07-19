@@ -4,10 +4,17 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.find(:all, :conditions => {:status => ['unstarted', 'doing']}, :order => "status ASC, updated_at DESC")
     @task = Task.new
+    @this_iteration = Iteration.for_week
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tasks }
+    end
+  end
+  
+  def done
+    member do
+      post @this_iteration
     end
   end
 
