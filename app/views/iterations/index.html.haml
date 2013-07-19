@@ -1,0 +1,5 @@
+%ul.tasks-list
+  - @iterations.each do |iteration|
+    %li
+      %p= iteration.start_date
+      %p= iteration.end_date

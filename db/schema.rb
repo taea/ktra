@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425112957) do
+ActiveRecord::Schema.define(:version => 20130619113001) do
+
+  create_table "iterations", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "tasks", :force => true do |t|
     t.string   "title"
@@ -20,8 +27,9 @@ ActiveRecord::Schema.define(:version => 20130425112957) do
     t.text     "memo"
     t.datetime "started_at"
     t.datetime "finished_at"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "iteration_id"
   end
 
 end
