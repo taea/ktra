@@ -5,7 +5,7 @@ Ktra::Application.routes.draw do
     end
   end
   resources :iterations do
-
+    resources :tasks
   end
   root :to => 'tasks#index'
 
