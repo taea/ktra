@@ -1,5 +1,6 @@
 %p= @iteration.start_date
 %p= @iteration.end_date
+%p= "VELOCITY: #{@velocity}"
 - if @tasks.present?
   = render 'tasks'
 - else

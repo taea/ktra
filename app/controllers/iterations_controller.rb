@@ -6,6 +6,7 @@ class IterationsController < ApplicationController
   def show
     @iteration = Iteration.find(params[:id])
     @tasks = @iteration.tasks
+    @velocity = @tasks.sum(:point)
 
     respond_to do |format|
       format.html # show.html.erb
