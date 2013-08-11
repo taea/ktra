@@ -5,6 +5,6 @@ class Iteration < ActiveRecord::Base
     time = Time.now + w.week
     self.where(start_date: time.in_time_zone.beginning_of_week.to_date)
       .where(end_date: time.in_time_zone.end_of_week.to_date)
-      .first_or_create
+      .first_or_create!
   end
 end
