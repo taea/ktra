@@ -1,0 +1,22 @@
+.date
+  %dl
+    %dt.year.num= iteration.start_date.year
+    %dd
+      %ul.start-date
+        %li.month.num= "#{p sprintf("%0#2d", iteration.start_date.month)}."
+        %li.day.num= p sprintf("%0#2d", iteration.start_date.day)
+      %i.icon-arrow-right
+      %ul.end-date
+        %li.month.num= "#{p sprintf("%0#2d", iteration.end_date.month)}."
+        %li.day.num= p sprintf("%0#2d", iteration.end_date.day)
+.right
+  %dl.remains
+    %dt REMAINS
+    %dd
+      .num= (iteration.end_date - Time.now.in_time_zone.to_date).to_i
+      %span days
+  %dl.total-points
+    %dt TOTAL
+    %dd
+      .num= @total_point
+      %span pt 

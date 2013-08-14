@@ -47,20 +47,7 @@
 
 .iteration
   = link_to iteration_path(@this_iteration) do
-    .date
-      .start-date= @this_iteration.start_date
-      .end-date= @this_iteration.end_date
-    .right
-      %dl.remains
-        %dt REMAINS
-        %dd
-          .num= (@this_iteration.end_date - Time.now.in_time_zone.to_date).to_i
-          %span days
-      %dl.total-points
-        %dt TOTAL
-        %dd
-          .num= @total_point
-          %span days
+    = render 'iteration', iteration: @this_iteration
 
 - if @tasks.present?
   = render 'tasks'
