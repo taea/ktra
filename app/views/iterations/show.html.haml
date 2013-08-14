@@ -1,6 +1,6 @@
-%p= @iteration.start_date
-%p= @iteration.end_date
-%p= "TOTAL: #{@total_point}pt"
+.iteration
+  .date
+    = render 'iteration', iteration: @iteration
 - if @tasks.present?
   = render 'tasks'
 - else
