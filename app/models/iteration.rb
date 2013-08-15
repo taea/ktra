@@ -7,4 +7,8 @@ class Iteration < ActiveRecord::Base
       .where(end_date: time.in_time_zone.end_of_week.to_date)
       .first_or_create!
   end
+
+  def total_point
+    tasks.sum(:point)
+  end
 end

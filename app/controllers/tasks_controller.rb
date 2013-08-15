@@ -5,7 +5,6 @@ class TasksController < ApplicationController
     @tasks = Task.find(:all, :conditions => {:status => ['unstarted', 'doing']}, :order => "status ASC, updated_at DESC")
     @task = Task.new
     @this_iteration = Iteration.for_week
-    @total_point = @this_iteration.tasks.sum(:point)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tasks }
