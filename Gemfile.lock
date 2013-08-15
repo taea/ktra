@@ -56,6 +56,9 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     font-awesome-rails (3.2.0.0)
       railties (>= 3.2, < 5.0)
     fssm (0.2.10)
@@ -150,6 +153,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails
   erb2haml
+  figaro
   font-awesome-rails
   haml-rails
   jquery-rails

@@ -31,6 +31,9 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'font-awesome-rails'
+gem 'figaro'
+gem 'omniauth'
+gem 'omniauth_twitter'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
