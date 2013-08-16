@@ -69,6 +69,7 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
+    hashie (1.2.0)
     hike (1.2.3)
     hpricot (0.8.6)
     html2haml (1.0.1)
@@ -88,6 +89,16 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     multi_json (1.7.7)
+    oauth (0.4.7)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-twitter (1.0.0)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
     pg (0.15.1)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -157,6 +168,8 @@ DEPENDENCIES
   font-awesome-rails
   haml-rails
   jquery-rails
+  omniauth
+  omniauth-twitter
   pg
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
