@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619113001) do
+ActiveRecord::Schema.define(:version => 20130815115856) do
 
   create_table "iterations", :force => true do |t|
     t.date     "start_date"
@@ -31,5 +31,18 @@ ActiveRecord::Schema.define(:version => 20130619113001) do
     t.datetime "updated_at",   :null => false
     t.integer  "iteration_id"
   end
+
+  create_table "users", :force => true do |t|
+    t.string   "uid",        :null => false
+    t.string   "name"
+    t.string   "nickname"
+    t.string   "image"
+    t.string   "token"
+    t.string   "secret"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "users", ["uid"], :name => "index_users_on_uid", :unique => true
 
 end
