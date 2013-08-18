@@ -530,6 +530,7 @@ select
   +pie-clearfix
   width: $width - 20px
   margin: 10px auto
+    top: 20px
   padding: 0 10px
   +relative
   .date
@@ -552,12 +553,14 @@ select
           height: 13px
         &.day
           font-size: 26px
-
     i
       float: left
       margin-right: 5px
       line-height: 26px
       color: rgba(white, .5)
+      &.icon-calendar
+        font-size: 18px
+
   .right
     float: right
     +pie-clearfix
