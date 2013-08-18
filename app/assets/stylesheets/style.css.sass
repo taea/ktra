@@ -520,57 +520,61 @@ select
   color: white
   +pie-clearfix
   width: $width - 20px
-  margin: 30px auto
+  margin: 20px auto
   padding: 0 10px
   +relative
-  dt
-    font-size: 10px
-    line-height: 1
   .date
     float: left
-    .year
-      font-size: 16px
     ul
       margin-right: 5px
       float: left
       +pie-clearfix
       li
         float: left
-        &.day
-          font-size: 40px
-          margin-right: -2px
-        &.month
+        &.year, &.month
           +relative
-          top: 16px
+          top: 7px
+          font-size: 13px
+          padding-right: 3px
+          border-right: 1px solid rgba(white, .5)
+          margin-right: 3px
+          line-height: 13px
+          padding-top: 2px
+          height: 10px
+        &.day
+          font-size: 26px
+
     i
       float: left
       margin-right: 5px
-      line-height: 40px
+      line-height: 26px
       color: rgba(white, .5)
   .right
     float: right
     +pie-clearfix
-    dl
+    .total-points
+      +relative
+      top: -4px
+      +border-radius(4px)
+      +balloon-bottom($color: white, $left: 20px)
       float: left
-      text-align: center
-      margin-left: 10px
-    .remains dt, .total-points dt
-      font-size: 9px !important
-      margin-bottom: 3px
-    dd
-      .num
-        font-size: 26px
-        line-height: 26px
-        display: block
-        margin-bottom: -4px
-    span
-      display: block
+      background: white
+      padding: 3px 8px
+        top: 4px
+      color: $text-color
       font-size: 10px
+      .num
+        font-size: 20px
+        +relative
+        top: 2px
+        margin-right: 2px
+      i
+        margin-right: 2px
+        color: rgba($text-color, .5)
   .icon-angle-right
     font-size: 20px
     color: rgba(white, .5)
     float: right
-    line-height: 50px
     margin-left: 3px
 
 .error-message
