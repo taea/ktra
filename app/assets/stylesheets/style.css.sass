@@ -520,7 +520,7 @@ select
   color: white
   +pie-clearfix
   width: $width - 20px
-  margin: 20px auto
+  margin: 10px auto
   padding: 0 10px
   +relative
   .date
@@ -533,14 +533,14 @@ select
         float: left
         &.year, &.month
           +relative
-          top: 7px
-          font-size: 13px
-          padding-right: 3px
+          top: 5px
+          font-size: 15px
+          padding-right: 5px
           border-right: 1px solid rgba(white, .5)
-          margin-right: 3px
-          line-height: 13px
+          margin-right: 5px
+          line-height: 15px
           padding-top: 2px
-          height: 10px
+          height: 13px
         &.day
           font-size: 26px
 
@@ -556,13 +556,15 @@ select
       +relative
       top: -4px
       +border-radius(4px)
-      +balloon-bottom($color: white, $left: 20px)
+      +balloon-bottom($color: white, $left: 28px)
       float: left
       background: white
       padding: 3px 8px
         top: 4px
+      width: 50px
       color: $text-color
       font-size: 10px
+      text-align: right
       .num
         font-size: 20px
         +relative
