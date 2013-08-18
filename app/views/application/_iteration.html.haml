@@ -1,25 +1,17 @@
 .date
-  %dl
-    %dt.year.num= iteration.start_date.year
-    %dd
-      %ul.start-date
-        %li.month.num= "#{p sprintf("%0#2d", iteration.start_date.month)}."
-        %li.day.num= p sprintf("%0#2d", iteration.start_date.day)
-      %i.icon-arrow-right
-      %ul.end-date
-        %li.month.num= "#{p sprintf("%0#2d", iteration.end_date.month)}."
-        %li.day.num= p sprintf("%0#2d", iteration.end_date.day)
-.right
-  - if local_assigns[:tasks]
-    %dl.remains
-      %dt Remains
-      %dd
-        .num= (iteration.end_date - Time.now.in_time_zone.to_date).to_i
-        %span days
-  %dl.total-points
-    %dt Total
-    %dd
-      .num= iteration.total_point
-      %span pt 
+  %ul.start-date
+    %li.year.num= "#{iteration.start_date.year}"
+    %li.month.num= "#{p sprintf("%0#2d", iteration.start_date.month)}"
+    %li.day.num= p sprintf("%0#2d", iteration.start_date.day)
+  %i.icon-arrow-right
+  %ul.end-date
+    %li.month.num= "#{p sprintf("%0#2d", iteration.end_date.month)}"
+    %li.day.num= p sprintf("%0#2d", iteration.end_date.day)
   - if local_assigns[:tasks]
     %i.icon-angle-right
+.right
+  .total-points
+    %i.icon-ok
+    %span.num<>
+      = iteration.total_point
+    pt 
