@@ -12,7 +12,11 @@
     %i.icon-pencil
   .field.point-radio
     %ul
-      %li.point-radio-text EASY
+      %li.pt0
+        = f.radio_button :point, 0
+        = f.label :point, for: 'task_point_0' do
+          %span.num<> 0
+          pt
       %li.pt1
         = f.radio_button :point, 1
         = f.label :point, for: 'task_point_1' do
@@ -38,7 +42,6 @@
         = f.label :point, for: 'task_point_8' do
           %span.num<> 8
           pt
-      %li.point-radio-text HARD
   .field
     = f.text_area :memo, class: 'memo', placeholder: 'MEMO'
   .actions

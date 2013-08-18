@@ -108,9 +108,11 @@ input[type="submit"], button, select
       color: white
       background: $color-null !important
       border-bottom: 1px solid (rgba(0,0,0,.1))
-    @for $pt from 1 through 8
+    @for $pt from 0 through 8
       $pt-color: ''
-      @if $pt == 1
+      @if $pt == 0
+        $pt-color: $color-pt0
+      @else if $pt == 1
         $pt-color: $color-pt1 
       @else if $pt == 2
         $pt-color: $color-pt2
@@ -137,9 +139,11 @@ input[type="submit"], button, select
       background: $color-null
     .status > button
       background: rgba(255, 255, 255, .3)
-    @for $pt from 1 through 8
+    @for $pt from 0 through 8
       $pt-color: ''
-      @if $pt == 1
+      @if $pt == 0
+        $pt-color: $color-pt0
+      @else if $pt == 1
         $pt-color: $color-pt1 
       @else if $pt == 2
         $pt-color: $color-pt2
@@ -292,9 +296,11 @@ select
         font-size: 18px
         display: block
         line-height: 25px
-  @for $pt from 1 through 8
+  @for $pt from 0 through 8
     $pt-color: ''
-    @if $pt == 1
+    @if $pt == 0 
+      $pt-color: $color-pt0 
+    @else if $pt == 1
       $pt-color: $color-pt1 
     @else if $pt == 2
       $pt-color: $color-pt2
@@ -324,9 +330,11 @@ select
   &.doing
     .destroy > a
       color: white
-    @for $pt from 1 through 8
+    @for $pt from 0 through 8
       $pt-color: ''
-      @if $pt == 1
+      @if $pt == 0
+        $pt-color: $color-pt0
+      @else if $pt == 1
         $pt-color: $color-pt1 
       @else if $pt == 2
         $pt-color: $color-pt2
@@ -372,6 +380,7 @@ select
       +pie-clearfix
       +relative
       left: 0
+      margin-left: 10px
     li
       float: left
       +relative
