@@ -1,6 +1,5 @@
-.iteration
-  .date
-    = render 'iteration', iteration: @iteration
+.iteration-summary
+  = render 'iteration', iteration: @iteration
 - if @tasks.present?
   = render 'tasks'
 - else

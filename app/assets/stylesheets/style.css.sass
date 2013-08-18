@@ -515,6 +515,63 @@ select
         width: 30px
         height: 30px
         +border-radius(30px)
+
+.iteration-summary
+  color: white
+  +pie-clearfix
+  width: $width - 20px
+  margin: 30px auto
+  padding: 0 10px
+  +relative
+  dt
+    font-size: 10px
+    line-height: 1
+  .date
+    float: left
+    .year
+      font-size: 16px
+    ul
+      margin-right: 5px
+      float: left
+      +pie-clearfix
+      li
+        float: left
+        &.day
+          font-size: 40px
+          margin-right: -2px
+        &.month
+          +relative
+          top: 16px
+    i
+      float: left
+      margin-right: 5px
+      line-height: 40px
+      color: rgba(white, .5)
+  .right
+    float: right
+    +pie-clearfix
+    dl
+      float: left
+      text-align: center
+      margin-left: 10px
+    .remains dt, .total-points dt
+      font-size: 9px !important
+      margin-bottom: 3px
+    dd
+      .num
+        font-size: 26px
+        line-height: 26px
+        display: block
+        margin-bottom: -4px
+    span
+      display: block
+      font-size: 10px
+  .icon-angle-right
+    font-size: 20px
+    color: rgba(white, .5)
+    float: right
+    line-height: 50px
+    margin-left: 3px
     
 .footer
   padding: 30px 0

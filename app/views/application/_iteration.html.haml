@@ -10,13 +10,16 @@
         %li.month.num= "#{p sprintf("%0#2d", iteration.end_date.month)}."
         %li.day.num= p sprintf("%0#2d", iteration.end_date.day)
 .right
-  %dl.remains
-    %dt REMAINS
-    %dd
-      .num= (iteration.end_date - Time.now.in_time_zone.to_date).to_i
-      %span days
+  - if local_assigns[:tasks]
+    %dl.remains
+      %dt Remains
+      %dd
+        .num= (iteration.end_date - Time.now.in_time_zone.to_date).to_i
+        %span days
   %dl.total-points
-    %dt TOTAL
+    %dt Total
     %dd
       .num= iteration.total_point
       %span pt 
+  - if local_assigns[:tasks]
+    %i.icon-angle-right

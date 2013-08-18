@@ -47,9 +47,9 @@
     .actions
       = f.button "#{content_tag(:i, '', class: 'icon-plus-sign')}".html_safe, type: :submit
 
-.iteration
+.iteration-summary
   = link_to iteration_path(@this_iteration) do
-    = render 'iteration', iteration: @this_iteration
+    = render 'iteration', iteration: @this_iteration, tasks: true
 
 - if @tasks.present?
   = render 'tasks'
