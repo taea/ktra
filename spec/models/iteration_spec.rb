@@ -14,18 +14,20 @@ describe Iteration do
   describe '#total_point' do
     subject { iteration.total_point }
     context 'タスクが存在する場合' do
-      let(:tasks) { [create(:task), create(:task)] }
+      let(:tasks) { [create(:task, point: 2), create(:task, point: 5)] }
+      let(:total_point) { tasks.sum(&:point) }
       before do
         iteration.tasks = tasks
       end
       it '合計値が算出できること' do
-        should eq tasks.size
+        should eq total_point
       end
     end
 
     context 'タスクが存在しない場合' do
+      let(:total_point) { 0 }
       it '合計値が算出できること' do
-        should eq 0
+        should eq total_point
       end
     end
   end
