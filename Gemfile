@@ -12,6 +12,30 @@ group :development, :test do
   gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  # Rspec
+  gem 'rspec-rails'
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'delorean'
+  gem 'shoulda-matchers'
+
+  # Capybara
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'launchy'
+
+  # Testing tools
+  gem 'database_cleaner'
+  gem 'webmock', require: false
+  
+  # Guard
+  gem 'spork'
+  gem 'spork-rails'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'guard-rails-assets'
 end
 
 # Gems used only for assets and not required
