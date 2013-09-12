@@ -22,3 +22,10 @@ $ open config/application.yml
 TWITTER_KEY: 'YOUR CONSUMER KEY'
 TWITTER_SECRET: 'YOUR CONSUMER SECRET'
 ```
+
+## Setup for phantom.js on Mac
+
+```
+brew update
+brew install phantomjs
+```
