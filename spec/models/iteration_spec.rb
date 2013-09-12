@@ -6,4 +6,8 @@ describe Iteration do
     subject { iteration }
     it { should be_instance_of Iteration }
   end
+
+  describe 'relations' do
+    it { should have_many :tasks }
+  end
 end
