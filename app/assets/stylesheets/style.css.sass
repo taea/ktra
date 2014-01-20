@@ -26,6 +26,11 @@ a
 input[type="submit"], button, select
   -webkit-appearance: none
 
+.tasks-list
+  @media only screen and (min-width : $max-device-width)
+    width: $max-device-width
+    margin: 0 auto
+
 .task
   +relative
   border: none
