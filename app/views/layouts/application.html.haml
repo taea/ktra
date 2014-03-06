@@ -22,11 +22,10 @@
       %h1= link_to "K-tra!", root_path
       .user
         - if current_user
-          - # FIXME ここのaタグ、必要なさそう
           %p.image
-            %a= image_tag current_user.image
+            =link_to image_tag(current_user.image), iterations_path
           %p.name
-            %a= current_user.nickname
+            =link_to current_user.nickname, iterations_path
         - else
           %p.name
             = link_to '/auth/twitter' do
