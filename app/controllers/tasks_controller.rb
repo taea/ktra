@@ -1,8 +1,10 @@
 class TasksController < ApplicationController
+  before_filter :authenticate_user!, except: [:index]
+
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.find(:all, :conditions => {:status => ['unstarted', 'doing']}, :order => "status ASC, updated_at DESC")
+    @tasks = current_user.tasks.active if sign_in?
     @task = Task.new
     @this_iteration = Iteration.for_week
     respond_to do |format|
@@ -48,6 +50,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
+    @task.user_id = current_user.id
 
     respond_to do |format|
       if @task.save
