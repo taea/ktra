@@ -9,7 +9,7 @@
           - @task.errors.full_messages.each do |msg|
             %li= msg
     .field
-      = f.text_field :title, class: 'task-title', placeholder: 'NEW TASK TITLE'
+      = f.text_field :title, class: 'task-title', placeholder: 'NEW TASK TITLE', required: true
       %i.icon-pencil
     .field.point-radio
       %ul
