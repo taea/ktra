@@ -18,3 +18,8 @@ class Tasks
       $(this).next().hide()
     $(":text").focusout ->
       $(this).next().show()
+    $(".new-task").find(".point-radio").hide()
+    $(".new-task").find(":text").focusout ->
+      newTaskVal = $(".new-task").find(":text").val()
+      if newTaskVal != ''
+        $(".new-task .point-radio").slideDown("fast")
