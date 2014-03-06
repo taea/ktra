@@ -1,3 +1,4 @@
+**.swp
 **.orig
 *.rbc
 *.sassc
@@ -30,3 +31,4 @@ public/assets
 public/assets-test
 rerun.txt
 spec/tmp
+
