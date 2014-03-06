@@ -9,6 +9,7 @@ Ktra::Application.routes.draw do
   end
   root :to => 'tasks#index'
   get '/auth/twitter/callback', to: 'sessions#create'
+  get '/auth/failure' => 'sessions#failure'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

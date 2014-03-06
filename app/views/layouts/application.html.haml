@@ -21,8 +21,16 @@
     %header.header
       %h1= link_to "K-tra!", root_path
       .user
-        %p.image= link_to image_tag('https://si0.twimg.com/profile_images/3703695062/b57c347a35c1fe6c4e09eca37eb7b327_normal.jpeg', alt: 'ken_c_lo'), 'auth/twitter'
-        %p.name= link_to 'ken_c_lo', 'auth/twitter'
+        - if current_user
+          -# FIXME 画像が取れてないな( ˘ω˘)
+          %p.image
+            =link_to image_tag(current_user.image), iterations_path
+          %p.name
+            =link_to current_user.nickname, iterations_path
+        - else
+          %p.name
+            = link_to '/auth/twitter' do
+              sign in
     = yield
     %footer.footer
       %small

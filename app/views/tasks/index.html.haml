@@ -9,7 +9,7 @@
           - @task.errors.full_messages.each do |msg|
             %li= msg
     .field
-      = f.text_field :title, class: 'task-title', placeholder: 'NEW TASK TITLE'
+      = f.text_field :title, class: 'task-title', placeholder: 'NEW TASK TITLE', required: true
       %i.icon-pencil
     .field.point-radio
       %ul
@@ -46,15 +46,18 @@
 
       = f.hidden_field :status, value: 'unstarted' 
     .actions
-      = f.button "#{content_tag(:i, '', class: 'icon-plus-sign')}".html_safe, type: :submit
+      - if sign_in?
+        = f.button "#{content_tag(:i, '', class: 'icon-plus-sign')}".html_safe, type: :submit
+      - else
+        - # FIXME
+        = link_to '/auth/twitter' do
+          Sign in with Twitter
 
 .iteration-summary
   = link_to iteration_path(@this_iteration) do
     = render 'iteration', iteration: @this_iteration, tasks: true
 
-- if @tasks.present?
+- if sign_in? && @tasks.present?
   = render 'tasks'
 - else
   %p.error-message There's no tasks yet.
-
-%p= link_to 'ITERATIONS', iterations_path

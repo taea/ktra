@@ -1,3 +1,4 @@
+**.swp
 **.orig
 *.rbc
 *.sassc
@@ -9,6 +10,7 @@
 .rspec
 .rvmrc
 .sass-cache
+.ruby-version
 /.bundle
 /coverage/
 /db/*.sqlite3
@@ -30,3 +32,4 @@ public/assets
 public/assets-test
 rerun.txt
 spec/tmp
+
