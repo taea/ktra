@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates_presence_of :uid
   validates_uniqueness_of :uid
 
-  def self.find_or_create_by_oauth(auth, current_user)
+  def self.authentication(auth, current_user)
     begin
       params = {
         uid: auth['uid'],
