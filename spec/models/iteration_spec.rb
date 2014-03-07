@@ -4,7 +4,7 @@ describe Iteration do
   let(:iteration) { create(:iteration) }
   describe 'イテレーションが生成出来る' do
     subject { iteration }
-    it { should be_instance_of Iteration }
+    it { expect(subject).to be_instance_of Iteration }
   end
 
   describe 'relations' do
@@ -20,14 +20,14 @@ describe Iteration do
         iteration.tasks = tasks
       end
       it '合計値が算出できること' do
-        should eq total_point
+        expect(subject).to eq total_point
       end
     end
 
     context 'タスクが存在しない場合' do
       let(:total_point) { 0 }
       it '合計値が算出できること' do
-        should eq total_point
+        expect(subject).to eq total_point
       end
     end
   end

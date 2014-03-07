@@ -20,7 +20,7 @@ describe User do
 
   describe 'ユーザーが生成出来る' do
     subject { user }
-    it { should be_instance_of User }
+    it { expect(subject).to be_instance_of User }
   end
 
   describe '.authentication' do
@@ -29,7 +29,7 @@ describe User do
     subject { User.authentication(auth_hash, current_user) }
 
     context 'auth_hashがない' do
-      it { should be_nil }
+      it { expect(subject).to be_nil }
     end
 
     context 'auth_hashがある' do
@@ -40,8 +40,8 @@ describe User do
           user.save
           user.reload
         end
-        it { should eq user }
-        it { should be_instance_of User }
+        it { expect(subject).to eq user }
+        it { expect(subject).to be_instance_of User }
       end
 
       context 'userがいない' do
@@ -49,8 +49,8 @@ describe User do
         before do
           User.stub_chain(:where, :first_or_initialize).and_return(new_user)
         end
-        it { should eq new_user }
-        it { should be_instance_of User }
+        it { expect(subject).to eq new_user }
+        it { expect(subject).to be_instance_of User }
       end
       it { expect(subject.image).to match '_bigger' }
     end
