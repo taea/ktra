@@ -7,21 +7,11 @@
     .form-header
       - case @task.status
       - when 'unstarted'
-        %h2
-          STANDBY
-          %i.icon-arrow-right
-        = render ('tasks/forms/start'), task: @task
+        = render ('tasks/statuses/unstarted'), task: @task
       - when 'doing'
-        %h2
-          DOING
-          %i.icon-arrow-right
-        = render ('tasks/forms/done'), task: @task
-        = render ('tasks/forms/stop'), task: @task
+        = render ('tasks/statuses/doing'), task: @task
       - when 'done'
-        %h2
-          DONE
-          %i.icon-arrow-right
-        = render ('tasks/forms/restart'), task: @task
+        = render ('tasks/statuses/done'), task: @task
     = render 'form'
     .time
       %dl
