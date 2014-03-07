@@ -5,13 +5,7 @@
         DELETE
         %i.icon-remove-sign
     .form-header
-      - case @task.status
-      - when 'unstarted'
-        = render ('tasks/statuses/unstarted'), task: @task
-      - when 'doing'
-        = render ('tasks/statuses/doing'), task: @task
-      - when 'done'
-        = render ('tasks/statuses/done'), task: @task
+      = render ("tasks/statuses/#{@task.status}"), task: @task
     = render 'form'
     .time
       %dl
