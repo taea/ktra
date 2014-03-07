@@ -11,12 +11,4 @@
         %span<>= '─'
         pt
         %i.icon-chevron-right
-  - if task.status == 'unstarted'
-    %span.status<>
-      = render ('tasks/form/start'), task: task
-  - if task.status == 'doing'
-    %span.status<>
-      = render ('tasks/form/done'), task: task
-  - if task.status == 'done'
-    %span.status<>
-      = render ('tasks/form/restart'), task: task
+  = render ("tasks/task/#{task.status}"), task: task
