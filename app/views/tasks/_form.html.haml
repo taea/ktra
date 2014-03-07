@@ -11,7 +11,7 @@
     = f.text_field :title, class: 'task-title', placeholder: 'TITLE'
     %i.icon-pencil
   .field.point-radio
-    = render ('point_radio'), f: f
+    = render ('tasks/forms/points'), f: f
   .field
     = f.text_area :memo, class: 'memo', placeholder: 'MEMO'
   .actions
