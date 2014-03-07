@@ -55,7 +55,7 @@
 
 .iteration-summary
   = link_to iteration_path(@this_iteration) do
-    = render 'iteration', iteration: @this_iteration, tasks: true
+    = render 'iterations/summary', iteration: @this_iteration, tasks: true
 
 - if sign_in? && @tasks.present?
   = render 'tasks'
