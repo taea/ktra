@@ -7,8 +7,8 @@ describe User do
       'provider' => 'twitter',
       'uid' => '123456',
       'info' => {
-        'nickname' => 'ppworks',
-        'name' => 'PP works',
+        'nickname' => 'ken_c_lo',
+        'name' => 'いぬです',
         'image' => 'http://a0.twimg.com/profile_images/2900491556/9d2bf873770958647f18b8e61af31f1a_normal.png'
       },
       'credentials' => {
