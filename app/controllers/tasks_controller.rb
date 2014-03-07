@@ -12,12 +12,6 @@ class TasksController < ApplicationController
       format.json { render json: @tasks }
     end
   end
-  
-  def done
-    member do
-      post @this_iteration
-    end
-  end
 
   # GET /tasks/1
   # GET /tasks/1.json
