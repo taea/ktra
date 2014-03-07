@@ -1,6 +1,6 @@
 .iteration-summary
   = render 'iterations/summary', iteration: @iteration
 - if @tasks.present?
-  = render 'tasks'
+  = render 'tasks/tasks'
 - else
   %p.error-message There's no tasks yet.
