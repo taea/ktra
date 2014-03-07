@@ -5,34 +5,7 @@
         DELETE
         %i.icon-remove-sign
     .form-header
-      - case @task.status
-      - when 'unstarted'
-        %h2
-          STANDBY
-          %i.icon-arrow-right
-        = form_for(@task) do |f|
-          = f.hidden_field :started_at, value: Time.now.to_s(:db)
-          = f.hidden_field :status, value: 'doing' 
-          = f.button " #{content_tag(:i, '', class: 'icon-play')}START".html_safe, type: :submit
-      - when 'doing'
-        %h2
-          DOING
-          %i.icon-arrow-right
-        = form_for(@task) do |f|
-          = f.hidden_field :finished_at, value: Time.now.to_s(:db)
-          = f.hidden_field :status, value: 'done' 
-          = f.button "#{content_tag(:i, '', class: 'icon-ok')}DONE".html_safe, type: :submit
-        = form_for(@task) do |f|
-          = f.hidden_field :status, value: 'unstarted' 
-          = f.button "#{content_tag(:i, '', class: 'icon-pause')}STOP".html_safe, type: :submit
-      - when 'done'
-        %h2
-          DONE
-          %i.icon-arrow-right
-        = form_for(@task) do |f|
-          = f.hidden_field :started_at, value: Time.now.to_s(:db)
-          = f.hidden_field :status, value: 'doing' 
-          = f.button "#{content_tag(:i, '', class: 'icon-repeat')}RESTART".html_safe, type: :submit
+      = render ("tasks/statuses/#{@task.status}"), task: @task
     = render 'form'
     .time
       %dl
@@ -46,4 +19,3 @@
           %dd.num= @task.finished_at.to_s(:db)
         - else
           %dd= '---'
-      

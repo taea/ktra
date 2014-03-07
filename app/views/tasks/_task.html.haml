@@ -1,0 +1,14 @@
+%li.task{class: "#{task.status} pt#{task.point}"}
+  =link_to edit_task_path(task) do
+    %span.title<>= task.title
+    - if task.point.present?
+      %span.point<>
+        %span.num<>= task.point
+        pt
+        %i.icon-chevron-right
+    - else
+      %span.point<>
+        %span<>= '─'
+        pt
+        %i.icon-chevron-right
+  = render ("tasks/task/#{task.status}"), task: task

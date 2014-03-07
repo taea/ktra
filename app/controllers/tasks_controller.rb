@@ -13,17 +13,6 @@ class TasksController < ApplicationController
     end
   end
 
-  # GET /tasks/1
-  # GET /tasks/1.json
-  def show
-    @task = Task.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @task }
-    end
-  end
-
   # GET /tasks/new
   # GET /tasks/new.json
   def new
@@ -38,6 +27,7 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
     @task = Task.find(params[:id])
+    @this_iteration = Iteration.for_week
   end
 
   # POST /tasks
