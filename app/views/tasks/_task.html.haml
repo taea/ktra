@@ -13,10 +13,10 @@
         %i.icon-chevron-right
   - if task.status == 'unstarted'
     %span.status<>
-      = render ('tasks/forms/start'), task: task
+      = render ('tasks/form/start'), task: task
   - if task.status == 'doing'
     %span.status<>
-      = render ('tasks/forms/done'), task: task
+      = render ('tasks/form/done'), task: task
   - if task.status == 'done'
     %span.status<>
-      = render ('tasks/forms/restart'), task: task
+      = render ('tasks/form/restart'), task: task

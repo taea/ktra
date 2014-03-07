@@ -12,7 +12,7 @@
       = f.text_field :title, class: 'task-title', placeholder: 'NEW TASK TITLE', required: true
       %i.icon-pencil
     .field.point-radio
-      = render ('tasks/forms/points'), f: f
+      = render ('tasks/form/points'), f: f
       = f.hidden_field :status, value: 'unstarted' 
     .actions
       - if sign_in?
