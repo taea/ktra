@@ -19,6 +19,7 @@
 /public/system/*
 /spec/tmp/*
 /tmp/*
+/vendor/bin
 /vendor/bundle
 Guardfile
 capybara-*.html
