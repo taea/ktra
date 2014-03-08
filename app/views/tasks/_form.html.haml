@@ -11,37 +11,7 @@
     = f.text_field :title, class: 'task-title', placeholder: 'TITLE'
     %i.icon-pencil
   .field.point-radio
-    %ul
-      %li.pt0
-        = f.radio_button :point, 0
-        = f.label :point, for: 'task_point_0' do
-          %span.num<> 0
-          pt
-      %li.pt1
-        = f.radio_button :point, 1
-        = f.label :point, for: 'task_point_1' do
-          %span.num<> 1
-          pt
-      %li.pt2
-        = f.radio_button :point, 2
-        = f.label :point, for: 'task_point_2' do
-          %span.num<> 2
-          pt
-      %li.pt3
-        = f.radio_button :point, 3
-        = f.label :point, for: 'task_point_3' do
-          %span.num<> 3
-          pt
-      %li.pt5
-        = f.radio_button :point, 5
-        = f.label :point, for: 'task_point_5' do
-          %span.num<> 5
-          pt
-      %li.pt8
-        = f.radio_button :point, 8
-        = f.label :point, for: 'task_point_8' do
-          %span.num<> 8
-          pt
+    = render ('tasks/form/points'), f: f
   .field
     = f.text_area :memo, class: 'memo', placeholder: 'MEMO'
   .actions
