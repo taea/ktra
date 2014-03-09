@@ -16,7 +16,7 @@
     %meta(property='og:type' content= "")/
     %meta(property='og:site_name' content= "ktra")/
     = favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png'
-    %link(rel='shortcut-icon' href= "favicon.ico")/
+    = favicon_link_tag
   %body
     %header.header
       %h1= link_to "K-tra!", root_path
