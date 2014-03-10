@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.14'
+#gem 'rails', '3.2.14'
+gem 'rails', '4.0.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -12,6 +13,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'quiet_assets'
 
   # Rspec
   gem 'rspec-rails'
@@ -38,19 +40,14 @@ group :development, :test do
   gem 'guard-rails-assets'
 end
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'compass-rails'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'compass-rails'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
-end
-
-gem 'sass-rails',   '~> 3.2.3'
+gem 'uglifier', '>= 1.3.0'
+gem 'sass-rails',   '~> 4.0.0'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'erb2haml'

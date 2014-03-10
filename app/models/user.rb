@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :image, :name, :nickname, :secret, :token, :uid
+  #attr_accessible :image, :name, :nickname, :secret, :token, :uid
   has_many :tasks, dependent: :destroy
 
   validates_presence_of :uid

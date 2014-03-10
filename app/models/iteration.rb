@@ -1,5 +1,5 @@
 class Iteration < ActiveRecord::Base
-  attr_accessible :end_date, :start_date
+  #attr_accessible :end_date, :start_date
   has_many :tasks
   def self.for_week(w=0)
     time = Time.now + w.week
