@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @user ||= User.where(id: session[:user_id]).first
+    @user ||= User.find_by(id: session[:user_id])
   end
 
   def sign_in?
