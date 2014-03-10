@@ -1,6 +1,6 @@
 jQuery ->
   window.Ktra ||= {}
-  window.Ktra.tasks. = new Tasks
+  window.Ktra.tasks = new Tasks
 
 class Tasks
   constructor: ->
