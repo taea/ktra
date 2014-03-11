@@ -2,4 +2,4 @@
   = f.hidden_field :finished_at, value: Time.now.to_s(:db)
   = f.hidden_field :status, value: 'done' 
   = f.hidden_field :iteration_id, value: @this_iteration.id
-  = f.button "#{content_tag(:i, '', class: 'icon-ok-sign')}DONE".html_safe, type: :submit
+  = f.button "#{content_tag(:i, '', class: 'fa fa-check-circle')}DONE".html_safe, type: :submit

@@ -16,7 +16,7 @@
       = f.hidden_field :status, value: 'unstarted' 
     .actions
       - if sign_in?
-        = f.button "#{content_tag(:i, '', class: 'icon-plus-sign')}".html_safe, type: :submit
+        = f.button "#{content_tag(:i, '', class: 'fa fa-plus-circle')}".html_safe, type: :submit
       - else
         - # FIXME
         = link_to '/auth/twitter' do

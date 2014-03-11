@@ -3,7 +3,7 @@
     %p.destroy
       = link_to task_path(@task), method: 'delete', confirm: '本当に削除してよろしいですか？' do
         DELETE
-        %i.icon-remove-sign
+        %i.fa.fa-times-circle
     .form-header
       = render ("tasks/statuses/#{@task.status}"), task: @task
     = render 'form'
