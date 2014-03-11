@@ -1,6 +1,6 @@
 class IterationsController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :set_iteration, only: [:show]
+  before_action :authenticate_user!
+  before_action :set_iteration, only: [:show]
 
   def index
     @iterations = Iteration.order('start_date DESC')

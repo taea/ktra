@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-  before_filter :authenticate_user!, except: [:index]
-  before_filter :set_task, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
+  before_action :set_task, only: [:edit, :update, :destroy]
 
   # GET /tasks
   # GET /tasks.json
