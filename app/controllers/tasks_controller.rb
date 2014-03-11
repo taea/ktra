@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
+  before_filter :set_task, only: [:edit, :update, :destroy]
 
   # GET /tasks
   # GET /tasks.json
@@ -26,7 +27,6 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    @task = Task.find(params[:id])
     @this_iteration = Iteration.for_week
   end
 
@@ -50,8 +50,6 @@ class TasksController < ApplicationController
   # PUT /tasks/1
   # PUT /tasks/1.json
   def update
-    @task = Task.find(params[:id])
-
     respond_to do |format|
       if @task.update_attributes(task_param)
         format.html { redirect_to root_path, notice: 'Task was successfully updated.' }
@@ -66,7 +64,6 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
-    @task = Task.find(params[:id])
     @task.destroy
 
     respond_to do |format|
@@ -76,6 +73,9 @@ class TasksController < ApplicationController
   end
 
   private
+  def set_task
+    @task = current_user.tasks.find(params[:id])
+  end
 
   def task_param
     params.require(:task).permit(:finished_at, :memo, :point, :started_at, :status, :title, :iteration_id)
