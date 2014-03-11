@@ -9,43 +9,54 @@ gem 'rails', '4.0.3'
 group :production do
   gem 'pg'
 end
-group :development, :test do
-  gem 'sqlite3'
+
+group :development do
+  # Debugs
+  gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'bullet'
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'letter_opener'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
+  gem 'pry-debugger'
   gem 'quiet_assets'
+  gem 'tapp'
+  gem 'view_source_map'
+  gem 'i18n-tasks'
+  gem 'thin'
+end
 
-  # Rspec
-  gem 'rspec-rails'
+group :test, :development do
+  # TDD
+  gem 'brakeman'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'delorean'
   gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'delorean'
-  gem 'shoulda-matchers'
-
-  # Capybara
-  gem 'capybara'
-  gem 'poltergeist'
+  gem 'guard-rspec', require: false
+  gem 'guard-sprockets2'
+  gem 'json_expressions'
   gem 'launchy'
-
-  # Testing tools
-  gem 'database_cleaner'
-  gem 'webmock', require: false
-  
-  # Guard
-  gem 'spork'
-  gem 'spork-rails'
-  gem 'guard-spork'
-  gem 'guard-rspec'
-  gem 'guard-rails-assets'
+  gem 'nokogiri'
+  gem 'poltergeist'
+  gem 'rails-db-resetup'
+  gem 'rb-fsevent', require: RUBY_PLATFORM.downcase =~ /darwin/ ? 'rb-fsevent' : false
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'sqlite3'
 end
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', :platforms => :ruby
-
 gem 'uglifier', '>= 1.3.0'
 gem 'sass-rails',   '~> 4.0.0'
 gem 'jquery-rails'
@@ -55,18 +66,4 @@ gem 'font-awesome-rails'
 gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-twitter'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
 gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
