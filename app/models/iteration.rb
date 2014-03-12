@@ -8,7 +8,7 @@ class Iteration < ActiveRecord::Base
       .first_or_create!
   end
 
-  def total_point
-    tasks.sum(:point)
+  def total_point(current_user)
+    self.tasks.owned_by(current_user).sum(:point)
   end
 end

@@ -7,7 +7,7 @@ class IterationsController < ApplicationController
   end
 
   def show
-    @tasks = current_user.tasks.where(iteration_id: @iteration)
+    @tasks = @iteration.tasks.owned_by(current_user)
 
     respond_to do |format|
       format.html # show.html.erb
