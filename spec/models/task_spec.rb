@@ -8,10 +8,10 @@ describe Task do
   end
 
   describe '.owned_by' do
-    let(:current_user) { create(:user) }
+    subject { Task.owned_by(current_user) }
 
-    context '引数がない場合' do
-      subject { Task.owned_by }
+    context 'ユーザーを指定しない場合' do
+      let(:current_user) { nil }
 
       it 'エラーが起きないこと' do
         expect{subject}.not_to raise_error
@@ -22,8 +22,8 @@ describe Task do
       end
     end
 
-    context '引数がある場合' do
-      subject { Task.owned_by(current_user) }
+    context 'ユーザーを指定した場合' do
+      let(:current_user) { create(:user) }
 
       context 'タスクが存在しない場合' do
         let(:tasks) { [] }
