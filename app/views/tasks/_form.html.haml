@@ -8,8 +8,7 @@
         - @task.errors.full_messages.each do |msg|
           %li= msg
   .field
-    = f.text_field :title, class: 'task-title', placeholder: 'TITLE'
-    %i.fa.fa-pencil
+    = render ('tasks/form/title'), f: f, placeholder: 'TITLE'
   .field.point-radio
     = render ('tasks/form/points'), f: f
   .field
