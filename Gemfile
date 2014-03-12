@@ -3,8 +3,8 @@ ruby '2.1.1'
 
 gem 'rails', '4.0.3'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# APIs
+gem 'bugsnag'
 
 group :production do
   gem 'pg'
