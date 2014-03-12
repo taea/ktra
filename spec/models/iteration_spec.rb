@@ -32,8 +32,8 @@ describe Iteration do
       end
 
       context '他人のタスクが存在する場合' do
-        let(:other) { create(:user) }
-        let(:others_tasks) {
+        let!(:other) { create(:user) }
+        let!(:others_tasks) {
           [
             create(:task, point: 3, user_id: other.id, iteration_id: iteration.id), 
             create(:task, point: 8, user_id: other.id, iteration_id: iteration.id)
