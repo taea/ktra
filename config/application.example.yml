@@ -1,2 +1,4 @@
 TWITTER_KEY: 'hogehoge'
 TWITTER_SECRET: 'fugofugo'
+production:
+  BUGSNAG_API_KEY: ''
