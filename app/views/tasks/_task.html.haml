@@ -5,10 +5,10 @@
       %span.point<>
         %span.num<>= task.point
         pt
-        %i.icon-chevron-right
+        %i.fa.fa-chevron-right
     - else
       %span.point<>
         %span<>= '─'
         pt
-        %i.icon-chevron-right
+        %i.fa.fa-chevron-right
   = render ("tasks/task/#{task.status}"), task: task

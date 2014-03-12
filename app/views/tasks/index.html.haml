@@ -10,7 +10,7 @@
             %li= msg
     .field
       = f.text_field :title, class: 'task-title', placeholder: 'NEW TASK TITLE', required: true
-      %i.icon-pencil
+      %i.fa.fa-pencil
     .field.point-radio
       = render ('tasks/form/points'), f: f
       = f.hidden_field :status, value: 'unstarted' 
