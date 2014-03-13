@@ -8,34 +8,26 @@ describe Task do
   end
 
   describe '.owned_by' do
-    context 'ユーザーを指定しない場合' do
-      subject { Task.owned_by }
+    subject { Task.owned_by(current_user) }
+    let(:current_user) { create(:user) }
 
-      it 'Exceptionが発生すること' do
-        expect{subject}.to raise_error
+    context 'タスクが存在しない場合' do
+      let(:tasks) { [] }
+      it '空の配列を取得すること' do
+        expect(subject).to eq tasks
       end
     end
 
-    context 'ユーザーを指定した場合' do
-      let(:current_user) { create(:user) }
-      subject { Task.owned_by(current_user) }
+    context 'タスクが存在する場合' do
+      let(:tasks) {
+        [
+          create(:task, point: 2, user_id: current_user.id), 
+          create(:task, point: 5, user_id: current_user.id)
+        ] 
+      }
 
-      context 'タスクが存在しない場合' do
-        let(:tasks) { [] }
-        it '空の配列を取得すること' do
-          expect(subject).to eq tasks
-        end
-      end
-
-      context 'タスクが存在する場合' do
-        let(:tasks) {
-          [
-            create(:task, point: 2, user_id: current_user.id), 
-            create(:task, point: 5, user_id: current_user.id)
-          ] 
-        }
-
-        it '自分のタスクが取得できること' do
+      context '引数にユーザを指定した場合' do
+        it 'そのユーザのタスクが取得できること' do
           expect(subject).to eq tasks
         end
 
@@ -51,6 +43,22 @@ describe Task do
           it '他人のタスクが混ざらないこと' do
             expect(subject).to eq tasks
           end
+        end
+      end
+
+      context '引数にユーザを指定しない場合' do
+        let(:current_user) { nil }
+        let(:tasks) { [] }
+        let!(:other) { create(:user) }
+        let!(:others_tasks) {
+          [
+            create(:task, point: 3, user_id: other.id), 
+            create(:task, point: 8, user_id: other.id)
+          ] 
+        }
+
+        it '空の配列を取得すること' do
+          expect(subject).to eq tasks
         end
       end
     end
