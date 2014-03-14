@@ -1,13 +1,13 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_task, only: [:edit, :update, :destroy]
+  before_action :set_this_iteration, [:index, :edit, :create, :update]
 
   # GET /tasks
   # GET /tasks.json
   def index
     @tasks = current_user.tasks.active if user_signed_in?
     @task = Task.new
-    @this_iteration = Iteration.for_week
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tasks }
@@ -27,7 +27,6 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    @this_iteration = Iteration.for_week
   end
 
   # POST /tasks
@@ -41,7 +40,7 @@ class TasksController < ApplicationController
         format.html { redirect_to root_path, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
-        format.html { render action: "new" }
+        format.html { render action: "index" }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
@@ -75,6 +74,10 @@ class TasksController < ApplicationController
   private
   def set_task
     @task = current_user.tasks.find(params[:id])
+  end
+
+  def set_this_iteration
+    @this_iteration = Iteration.for_week
   end
 
   def task_param
