@@ -12,20 +12,20 @@
       = render ('tasks/form/title'), f: f, placeholder: 'NEW TASK TITLE'
     .field.point-radio
       = render ('tasks/form/points'), f: f
-      = f.hidden_field :status, value: 'unstarted' 
+      = f.hidden_field :status, value: 'unstarted'
     .actions
-      - if sign_in?
+      - if user_signed_in?
         = f.button "#{content_tag(:i, '', class: 'fa fa-plus-circle')}".html_safe, type: :submit
       - else
         - # FIXME
-        = link_to '/auth/twitter' do
+        = link_to user_omniauth_authorize_path(:twitter) do
           Sign in with Twitter
 
 .iteration-summary
   = link_to iteration_path(@this_iteration) do
     = render 'iterations/summary', iteration: @this_iteration, tasks: true
 
-- if sign_in? && @tasks.present?
+- if user_signed_in? && @tasks.present?
   = render 'tasks'
 - else
   %p.error-message There's no tasks yet.

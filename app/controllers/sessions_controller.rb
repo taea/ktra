@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
-  def create
+  def twitter
     @user = User.authentication(auth_hash, current_user)
-    session[:user_id] = @user.id
-    redirect_to '/'
+    sign_in(@user)
+    redirect_to root_path, notice: t('devise.omniauth_callbacks.success', kind: :twitter)
   end
 
   def failure

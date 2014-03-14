@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  devise :omniauthable
   #attr_accessible :image, :name, :nickname, :secret, :token, :uid
   has_many :tasks, dependent: :destroy
 

@@ -1,4 +1,5 @@
 Ktra::Application.routes.draw do
+  devise_for :users, controllers: { omniauth_callbacks: 'sessions' }, skip: [:sessions]
   resources :tasks do
     member do
       post 'done'
@@ -8,7 +9,6 @@ Ktra::Application.routes.draw do
     resources :tasks
   end
   root :to => 'tasks#index'
-  get '/auth/twitter/callback', to: 'sessions#create'
   get '/auth/failure' => 'sessions#failure'
 
   # The priority is based upon order of creation:

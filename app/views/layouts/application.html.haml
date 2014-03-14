@@ -29,7 +29,7 @@
             =link_to current_user.nickname, iterations_path
         - else
           %p.name
-            = link_to '/auth/twitter' do
+            = link_to user_omniauth_authorize_path(:twitter) do
               sign in
     = yield
     %footer.footer
