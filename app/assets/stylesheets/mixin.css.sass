@@ -321,3 +321,50 @@
   +border-bottom-radius(6px)
   +transition-duration(.3s)
   text-align: center
+
+=point-in-list
+  +absolute
+  display: block
+  right: 0
+  top: 0
+  height: 45px
+  width: 50px
+  padding-right: 10px
+  text-align: right
+  font-size: 10px
+  span
+    margin-right: 5px
+    &.num
+      margin-right: 3px
+      +relative
+      top: 2px
+      +num-font
+      font-size: 27px
+  i
+    color: rgba(255, 255, 255, .5)
+    display: inline !important
+
+=list
+  +relative
+  border: none
+  margin-bottom: 0
+  a
+    box-sizing: border-box
+    height: 45px
+    line-height: 45px
+    display: block
+    +pie-clearfix
+    background: $color-null
+    color: white
+    border-bottom: 1px solid rgba(0,0,0,.1) !important
+    padding: 0
+    .title
+      font-size: 14px
+      display: block
+      +nowrap
+      width: 320px - 60px - 60px
+      +relative
+      left: 60px
+    +relative
+    .point
+      +point-in-list
