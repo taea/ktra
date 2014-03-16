@@ -1,23 +1,23 @@
-.form.new-task
-  = form_for(@task) do |f|
-    - if @task.errors.any?
-      #error_explanation
-        %h2
-          = pluralize(@task.errors.count, "error")
-          prohibited this task from being saved:
-        %ul
-          - @task.errors.full_messages.each do |msg|
-            %li= msg
-    .field
-      = render ('tasks/form/title'), f: f, placeholder: 'NEW TASK TITLE'
-    .field.point-radio
-      = render ('tasks/form/points'), f: f
-      = f.hidden_field :status, value: 'unstarted' 
-    .actions
-      - unless sign_in?
-        - # FIXME
-        = link_to '/auth/twitter' do
-          Sign in with Twitter
+- if sign_in?
+  .form.new-task
+    = form_for(@task) do |f|
+      - if @task.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@task.errors.count, "error")
+            prohibited this task from being saved:
+          %ul
+            - @task.errors.full_messages.each do |msg|
+              %li= msg
+      .field
+        = render ('tasks/form/title'), f: f, placeholder: 'NEW TASK TITLE'
+      .field.point-radio
+        = render ('tasks/form/points'), f: f
+        = f.hidden_field :status, value: 'unstarted'
+- else
+  - # FIXME
+  = link_to '/auth/twitter' do
+    Sign in with Twitter
 
 .iteration-summary
   = link_to iteration_path(@this_iteration) do
