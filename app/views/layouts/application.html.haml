@@ -18,29 +18,30 @@
     = favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png'
     = favicon_link_tag
   %body
-    %header.header
-      %h1= link_to "K-tra!", root_path
-      .user
-        - if current_user
-          -# FIXME 画像が取れてないな( ˘ω˘)
-          %p.image
-            =link_to image_tag(current_user.image), iterations_path
-          %p.name
-            =link_to current_user.nickname, iterations_path
-        - else
-          %p.name
-            = link_to '/auth/twitter' do
-              sign in
-    = yield
-    %footer.footer
-      %small
-        Created by
-        =link_to '@ken_c_lo', 'https://twitter.com/ken_c_lo', target: '_blank'
-        &nbsp;
-        =link_to '@katton', 'https://twitter.com/katton', target: '_blank'
-        &nbsp;
-        =link_to '@ppworks', 'https://twitter.com/ppworks', target: '_blank'
-        , Thanks 
-        =link_to '#p4d', 'http://prog4designer.github.io/', target: '_blank'
-        %br 
-        =link_to 'CC BY-NC-SA 2.1', 'http://creativecommons.org/licenses/by-nc-sa/2.1/jp/', target: '_blank'
+    .body
+      %header.header
+        %h1= link_to "K-tra!", root_path
+        .user
+          - if current_user
+            -# FIXME 画像が取れてないな( ˘ω˘)
+            %p.image
+              =link_to image_tag(current_user.image), iterations_path
+            %p.name
+              =link_to current_user.nickname, iterations_path
+          - else
+            %p.name
+              = link_to '/auth/twitter' do
+                sign in
+      = yield
+      %footer.footer
+        %small
+          Created by
+          =link_to '@ken_c_lo', 'https://twitter.com/ken_c_lo', target: '_blank'
+          &nbsp;
+          =link_to '@katton', 'https://twitter.com/katton', target: '_blank'
+          &nbsp;
+          =link_to '@ppworks', 'https://twitter.com/ppworks', target: '_blank'
+          , Thanks
+          =link_to '#p4d', 'http://prog4designer.github.io/', target: '_blank'
+          %br
+          =link_to 'CC BY-NC-SA 2.1', 'http://creativecommons.org/licenses/by-nc-sa/2.1/jp/', target: '_blank'
