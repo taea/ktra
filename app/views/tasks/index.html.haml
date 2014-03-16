@@ -10,7 +10,7 @@
             - @task.errors.full_messages.each do |msg|
               %li= msg
       .field
-        = render ('tasks/form/title'), f: f, placeholder: 'NEW TASK TITLE'
+        = render ('tasks/form/title'), f: f, placeholder: 'NEW TASK TITLE', new_task: true
       .field.point-radio
         = render ('tasks/form/points'), f: f
         = f.hidden_field :status, value: 'unstarted'
