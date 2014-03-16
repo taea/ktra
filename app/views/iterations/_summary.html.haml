@@ -1,5 +1,6 @@
 .date
-  %i.fa.fa-calendar
+  - unless local_assigns[:iterations]
+    %i.fa.fa-calendar
   %ul.start-date
     %li.year.num= "#{iteration.start_date.year}"
     %li.month.num= "#{p sprintf("%0#2d", iteration.start_date.month)}"
@@ -16,3 +17,5 @@
     %span.num<>
       = iteration.total_point(current_user)
     pt 
+    - if local_assigns[:iterations]
+      %i.fa.fa-chevron-right
