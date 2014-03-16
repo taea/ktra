@@ -26,55 +26,13 @@ a
 input[type="submit"], button, select
   -webkit-appearance: none
 
-.tasks-list
+.tasks-list, .iterations-list
   @media only screen and (min-width : $max-device-width)
     width: $width
     margin: 0 auto
 
 .task
-  +relative
-  border: none
-  margin-bottom: 0
-  a
-    box-sizing: border-box
-    height: 45px
-    line-height: 45px
-    display: block
-    +pie-clearfix
-    background: $color-null
-    color: white
-    border-bottom: 1px solid rgba(0,0,0,.1) !important
-    padding: 0
-    .title
-      font-size: 14px
-      display: block
-      +nowrap
-      width: 320px - 60px - 60px
-      +relative
-      left: 60px
-    .num
-      +num-font
-      font-size: 27px
-    +relative
-    .point
-      +absolute
-      display: block
-      right: 0
-      top: 0
-      height: 45px
-      width: 50px
-      padding-right: 10px
-      text-align: right
-      font-size: 10px
-      span
-        margin-right: 5px
-        &.num
-          margin-right: 3px
-          +relative
-          top: 2px
-      i
-        color: rgba(255, 255, 255, .5)
-        display: inline !important
+  +list
   .status
     input[type="submit"], button 
       +absolute
@@ -595,6 +553,28 @@ select
     color: rgba(white, .5)
     float: right
     margin-left: 3px
+
+.iteration
+  +list
+  .iteration-summary
+    width: 100%
+    margin: 0
+    .date
+      +relative
+      top: 2px
+      .year, .month
+        top: 15px
+      i
+        +relative
+        top: 10px
+    .total-points
+      +point-in-list
+      right: 25px
+      color: white
+      background: none
+      top: -5px
+      &:after
+        display: none
 
 .error-message
   color: rgba(white, .5)

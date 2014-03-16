@@ -1,6 +1,6 @@
-%ul.tasks-list
+%ul.iterations-list
   - @iterations.each do |iteration|
-    %li.task
-      =link_to iteration_path(iteration) do
-        %p= iteration.start_date
-        %p= iteration.end_date
+    - 10.times do
+      %li.iteration
+        =link_to iteration_path(iteration) do
+          .iteration-summary= render ('iterations/summary'), iteration: iteration, iterations: true
