@@ -358,6 +358,7 @@
     color: white
     border-bottom: 1px solid rgba(0,0,0,.1) !important
     padding: 0
+    +relative
     .title
       font-size: 14px
       display: block
@@ -365,6 +366,7 @@
       width: 320px - 60px - 60px
       +relative
       left: 60px
-    +relative
+      @media only screen and (min-width : $max-device-width)
+      width: $max-device-width - 60px - 60px
     .point
       +point-in-list
