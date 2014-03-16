@@ -22,4 +22,4 @@ class Tasks
     $(".new-task").find(":text").focusout ->
       newTaskVal = $(".new-task").find(":text").val()
       if newTaskVal != ''
-        $(".new-task .point-radio").slideDown("fast")
+        $(".new-task .point-radio").slideDown("fast", "swing")
