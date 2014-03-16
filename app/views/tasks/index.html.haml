@@ -14,9 +14,7 @@
       = render ('tasks/form/points'), f: f
       = f.hidden_field :status, value: 'unstarted' 
     .actions
-      - if sign_in?
-        = f.button "#{content_tag(:i, '', class: 'fa fa-plus-circle')}".html_safe, type: :submit
-      - else
+      - unless sign_in?
         - # FIXME
         = link_to '/auth/twitter' do
           Sign in with Twitter
