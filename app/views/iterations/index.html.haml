@@ -1,6 +1,5 @@
 %ul.iterations-list
   - @iterations.each do |iteration|
-    - 10.times do
-      %li.iteration
-        =link_to iteration_path(iteration) do
-          .iteration-summary= render ('iterations/summary'), iteration: iteration, iterations: true
+    %li.iteration
+      =link_to iteration_path(iteration) do
+        .iteration-summary= render ('iterations/summary'), iteration: iteration, iterations: true
