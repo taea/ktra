@@ -11,6 +11,7 @@ class Tasks
 
   listen: ->
     @listen_focus()
+    @listen_submit()
 
 
   listen_focus: ->
@@ -18,3 +19,14 @@ class Tasks
       $(this).next().hide()
     $(":text").focusout ->
       $(this).next().show()
+    $(".new-task").find(".point-radio").hide()
+    $(".new-task").find(":text").focusout ->
+      newTaskVal = $(".new-task").find(":text").val()
+      if newTaskVal != ''
+        $(".new-task .point-radio").slideDown("fast", "swing")
+
+  listen_submit: ->
+    $(".point-radio").find("input").on 'click', ->
+      newTaskForm = $(".new-task").find("form")
+      $(newTaskForm).attr("action", "/tasks")
+      $(newTaskForm).submit()
