@@ -1,0 +1,62 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  errors:
+    messages:
+      expired: "有効期限切れです。新規登録してください"
+      not_found: "は見つかりませんでした"
+      already_confirmed: "は既に登録済みです。ログインしてください"
+      not_locked: "ロックされていません"
+      not_saved:
+        one: "エラーがあります"
+        other: "エラーがあります"
+  devise:
+    failure:
+      already_authenticated: 'ログイン済みです'
+      inactive: 'アカウントがまだ有効になっていません'
+      invalid: 'メールアドレスまたはパスワードが違います'
+      invalid_token: '認証キーが不正です'
+      locked: 'アカウントはロックされています'
+      not_found_in_database: "メールアドレスまたはパスワードが違います"
+      timeout: '一定時間が経過したため、再度ログインが必要です'
+      unauthenticated: 'ログインまたは登録が必要です'
+      unconfirmed: '本登録を行ってください'
+    sessions:
+      signed_in: 'ログインしました'
+      signed_out: 'ログアウトしました'
+    passwords:
+      send_instructions: 'パスワードのリセット方法を記載したメールを送信しました'
+      updated: 'パスワードを変更しました。ログイン済みです'
+      updated_not_active: 'パスワードを変更しました'
+      send_paranoid_instructions: "ご登録のメールアドレスが保存されている場合、パスワード復旧用のリンク先をメールでご連絡します"
+    confirmations:
+      send_instructions: 'アカウントの確認方法を数分以内にメールでご連絡します'
+      send_paranoid_instructions: 'ご登録のメールアドレスが保存されている場合、アカウントの確認方法をメールでご連絡します'
+      confirmed: 'アカウントが確認されました。ログインしています'
+    registrations:
+      destroyed: 'ご利用ありがとうございました。アカウントが削除されました。またのご利用をお待ちしています'
+      signed_up: 'ようこそ！ アカウントが登録されました'
+      signed_up_but_inactive: 'アカウントがアクティブではないようです。'
+      signed_up_but_locked: 'アカウントがロックされてます'
+      signed_up_but_unconfirmed: 'アカウントのメールアドレスが未確認です'
+      update_needs_confirmation: "アカウント情報の更新をしましたが、新しいメールアドレスの確認がされていません。確認メールをご確認下さい。"
+      inactive_signed_up: 'You have signed up successfully. However, we could not sign you in because your account is %{reason}.'
+      updated: 'You updated your account successfully.'
+      reasons:
+        inactive: 'inactive'
+        unconfirmed: 'unconfirmed'
+        locked: 'locked'
+    unlocks:
+      send_instructions: 'アカウントのロックを解除する方法を数分以内にメールでご連絡します'
+      unlocked: 'アカウントのロックが解除されました。ログインしています。'
+      send_paranoid_instructions: 'アカウントが存在する場合、ロックを解除する方法をメールでご連絡します'
+    omniauth_callbacks:
+      success: '%{kind}アカウントでログインしました。'
+      failure: '%{kind} から承認されませんでした。理由："%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'アカウントの登録方法'
+      reset_password_instructions:
+        subject: 'パスワードの再設定'
+      unlock_instructions:
+        subject: 'アカウントのロック解除'

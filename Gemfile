@@ -6,6 +6,11 @@ gem 'rails', '4.0.3'
 # APIs
 gem 'bugsnag'
 
+# Auth
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+
 group :production do
   gem 'pg'
 end
@@ -64,6 +69,4 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'figaro'
-gem 'omniauth'
-gem 'omniauth-twitter'
 gem 'unicorn'

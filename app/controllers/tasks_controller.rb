@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = current_user.tasks.active if sign_in?
+    @tasks = current_user.tasks.active if user_signed_in?
     @task = Task.new
     @this_iteration = Iteration.for_week
     respond_to do |format|
