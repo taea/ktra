@@ -1,47 +1,8 @@
 !!!
 %html
-  %head
-    %title K-tra! The Lightweight Task Tracker
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
-    = csrf_meta_tags
-    %meta(name='viewport' content= "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no")/
-    %meta(name='format-detection' content= "telephone=no")/
-    %meta(name='apple-mobile-web-app-capable' content= "no")/
-    %meta(name='apple-mobile-web-app-status-bar-style' content= "black-translucent")/
-    %meta(name='description' content= "")/
-    %meta(name='keywords' content= "")/
-    %meta(property='og:title' content= "K-tra! The Lightwaight Task Tracker")/
-    %meta(property='og:url' content= "")/
-    %meta(property='og:type' content= "")/
-    %meta(property='og:site_name' content= "ktra")/
-    = favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png'
-    = favicon_link_tag
+  = render ('head')
   %body
     .body
-      %header.header
-        %h1= link_to "K-tra!", root_path
-        .user
-          - if current_user
-            -# FIXME 画像が取れてないな( ˘ω˘)
-            %p.image
-              =link_to image_tag(current_user.image), iterations_path
-            %p.name
-              = link_to current_user.nickname, iterations_path
-          - else
-            %p.name
-              = link_to user_omniauth_authorize_path(:twitter) do
-                sign in
+      = render ('header')
       = yield
-      %footer.footer
-        %small
-          Created by
-          =link_to '@ken_c_lo', 'https://twitter.com/ken_c_lo', target: '_blank'
-          &nbsp;
-          =link_to '@katton', 'https://twitter.com/katton', target: '_blank'
-          &nbsp;
-          =link_to '@ppworks', 'https://twitter.com/ppworks', target: '_blank'
-          , Thanks
-          =link_to '#p4d', 'http://prog4designer.github.io/', target: '_blank'
-          %br
-          =link_to 'CC BY-NC-SA 2.1', 'http://creativecommons.org/licenses/by-nc-sa/2.1/jp/', target: '_blank'
+      = render ('footer')
