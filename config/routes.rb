@@ -8,7 +8,8 @@ Ktra::Application.routes.draw do
   resources :iterations do
     resources :tasks
   end
-  root :to => 'tasks#index'
+  # FIXME ログイン前のページを分けるやりかたがわからず、一時的にroot_path 変えた
+  root :to => 'welcome#index'
   get '/auth/failure' => 'sessions#failure'
 
   # The priority is based upon order of creation:
