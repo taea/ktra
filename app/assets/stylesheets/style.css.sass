@@ -21,6 +21,10 @@ html, body
   @media only screen and (min-width : $max-device-width)
     width: $max-device-width
     margin: 0 auto
+  &.welcome
+    padding-top: 100px
+    width: 100%
+    text-align: center
 a
   color: white
   text-decoration: none
@@ -255,20 +259,8 @@ select
       font-size: 18px
       line-height: 60px
     button
-      color: white
-      background: $text-color
-      width: 60px
-      height: 60px
-      +border-radius(30px)
-      font-size: 10px
-      text-align: center
-      border: none
-      margin-left: 10px
+      +circle-button
       float: left
-      i
-        font-size: 18px
-        display: block
-        line-height: 25px
   @for $pt from 0 through 8
     $pt-color: ''
     @if $pt == 0 
@@ -602,3 +594,27 @@ select
   line-height: 1.4
   a
     color: white
+
+.welcome
+  color: white
+  .ktra-image
+    margin-bottom: 15px
+  .logo
+    +num-font
+    font-size: 40px
+  .catch
+    margin-bottom: 30px
+    font-size: 16px
+  .sign-in
+    +circle-button
+    margin: 0 auto
+    float: none
+    background: $color-pt1
+    i
+      font-size: 30px
+      +relative
+      top: 5px
+      line-height: 35px
+    span
+      +relative
+      top: 2px
