@@ -1,2 +1,2 @@
-= f.text_field :title, class: 'task-title', placeholder: placeholder, required: true
+= f.text_field :title, class: 'task-title', placeholder: placeholder, required: true, class: "#{'allow-submit' unless local_assigns[:new_task]}"
 %i.fa.fa-pencil
