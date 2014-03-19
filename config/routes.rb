@@ -8,7 +8,10 @@ Ktra::Application.routes.draw do
   resources :iterations do
     resources :tasks
   end
-  root :to => 'tasks#index'
+  authenticated :user do
+    root 'tasks#index', as: :authenticated_user_root
+  end
+  root :to => 'welcome#index'
   get '/auth/failure' => 'sessions#failure'
 
   # The priority is based upon order of creation:
