@@ -8,7 +8,9 @@ Ktra::Application.routes.draw do
   resources :iterations do
     resources :tasks
   end
-  # FIXME ログイン前のページを分けるやりかたがわからず、一時的にroot_path 変えた
+  authenticated :user do
+    root 'tasks#index', as: :authenticated_user_root
+  end
   root :to => 'welcome#index'
   get '/auth/failure' => 'sessions#failure'
 
