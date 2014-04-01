@@ -3,7 +3,7 @@ class WeeksController < ApplicationController
   before_action :set_week, only: [:show]
 
   def index
-    @weeks = Week.order('start_date DESC')
+    @weeks = Week.since_first_task_by(current_user).order('start_date DESC')
   end
 
   def show
