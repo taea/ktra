@@ -11,14 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306103013) do
-
-  create_table "iterations", force: true do |t|
-    t.date     "start_date"
-    t.date     "end_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140401074621) do
 
   create_table "tasks", force: true do |t|
     t.string   "title"
@@ -27,9 +20,9 @@ ActiveRecord::Schema.define(version: 20140306103013) do
     t.text     "memo"
     t.datetime "started_at"
     t.datetime "finished_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "iteration_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "week_id"
     t.integer  "user_id"
   end
 
@@ -42,10 +35,17 @@ ActiveRecord::Schema.define(version: 20140306103013) do
     t.string   "image"
     t.string   "token"
     t.string   "secret"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "users", ["uid"], name: "index_users_on_uid", unique: true
+
+  create_table "weeks", force: true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
