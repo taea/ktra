@@ -1,0 +1,5 @@
+%ul.weeks-list
+  - @weeks.each do |week|
+    %li.week
+      =link_to week_path(week) do
+        .week-summary= render ('weeks/summary'), week: week, weeks: true

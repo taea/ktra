@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Iteration do
-  let(:iteration) { create(:iteration) }
+describe Week do
+  let(:week) { create(:week) }
   describe 'イテレーションが生成出来る' do
-    subject { iteration }
-    it { expect(subject).to be_instance_of Iteration }
+    subject { week }
+    it { expect(subject).to be_instance_of Week }
   end
 
   describe 'relations' do
@@ -13,18 +13,18 @@ describe Iteration do
 
   describe '#total_point' do
     let(:current_user) { create(:user) }
-    subject { iteration.total_point(current_user) }
+    subject { week.total_point(current_user) }
     context 'タスクが存在する場合' do
       let(:tasks) {
         [
-          create(:task, point: 2, user_id: current_user.id, iteration_id: iteration.id), 
-          create(:task, point: 5, user_id: current_user.id, iteration_id: iteration.id)
+          create(:task, point: 2, user_id: current_user.id, week_id: week.id), 
+          create(:task, point: 5, user_id: current_user.id, week_id: week.id)
         ] 
       }
       let(:total_point) { tasks.sum(&:point) }
 
       before do
-        iteration.tasks = tasks
+        week.tasks = tasks
       end
 
       it '合計値が算出できること' do
@@ -35,8 +35,8 @@ describe Iteration do
         let!(:other) { create(:user) }
         let!(:others_tasks) {
           [
-            create(:task, point: 3, user_id: other.id, iteration_id: iteration.id), 
-            create(:task, point: 8, user_id: other.id, iteration_id: iteration.id)
+            create(:task, point: 3, user_id: other.id, week_id: week.id), 
+            create(:task, point: 8, user_id: other.id, week_id: week.id)
           ] 
         }
 

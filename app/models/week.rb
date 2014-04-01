@@ -1,4 +1,4 @@
-class Iteration < ActiveRecord::Base
+class Week < ActiveRecord::Base
   #attr_accessible :end_date, :start_date
   has_many :tasks
   def self.for_week(w=0)

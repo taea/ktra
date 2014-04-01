@@ -5,7 +5,7 @@ Ktra::Application.routes.draw do
       post 'done'
     end
   end
-  resources :iterations do
+  resources :weeks do
     resources :tasks
   end
   authenticated :user do

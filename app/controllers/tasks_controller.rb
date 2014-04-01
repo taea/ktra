@@ -7,7 +7,7 @@ class TasksController < ApplicationController
   def index
     @tasks = current_user.tasks.active if user_signed_in?
     @task = Task.new
-    @this_iteration = Iteration.for_week
+    @this_week = Week.for_week
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tasks }
@@ -27,7 +27,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    @this_iteration = Iteration.for_week
+    @this_week = Week.for_week
   end
 
   # POST /tasks
@@ -78,6 +78,6 @@ class TasksController < ApplicationController
   end
 
   def task_param
-    params.require(:task).permit(:finished_at, :memo, :point, :started_at, :status, :title, :iteration_id)
+    params.require(:task).permit(:finished_at, :memo, :point, :started_at, :status, :title, :week_id)
   end
 end
