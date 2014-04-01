@@ -10,23 +10,27 @@ class Tasks
     @listen()
 
   listen: ->
-    @listen_focus()
-    @listen_submit()
+    @toggle_point_radio_buttons()
+    @listen_keyup()
+    @listen_task_point()
+
+  listen_keyup: ->
+    $(document).on 'keyup', '.new_task #task_title', @toggle_point_radio_buttons
+
+  toggle_point_radio_buttons: =>
+    if $('#task_title').val()
+      @show_point_radio_buttons()
+    else
+      @hide_point_radio_buttons()
+
+  show_point_radio_buttons: =>
+    $(".new-task .point-radio").slideDown("fast", "swing")
+
+  hide_point_radio_buttons: =>
+    $(".new-task .point-radio").hide()
 
 
-  listen_focus: ->
-    $(":text").focus ->
-      $(this).next().hide()
-    $(":text").focusout ->
-      $(this).next().show()
-    $(".new-task").find(".point-radio").hide()
-    $(".new-task").find(":text").focusout ->
-      newTaskVal = $(".new-task").find(":text").val()
-      if newTaskVal != ''
-        $(".new-task .point-radio").slideDown("fast", "swing")
+  listen_task_point: ->
+    $(document).on 'click', '.new_task .point-radio input', (e) =>
+      $('.new_task').submit()
 
-  listen_submit: ->
-    $(".point-radio").find("input").on 'click', ->
-      newTaskForm = $(".new-task").find("form")
-      $(newTaskForm).attr("action", "/tasks")
-      $(newTaskForm).submit()
