@@ -11,6 +11,24 @@ describe Week do
     it { should have_many :tasks }
   end
 
+  describe '.since_first_task_by' do
+    let!(:last_week) { Week.current(1.week.ago) }
+    let!(:current_week) { Week.current }
+    let(:current_user) { create(:user) }
+    subject { Week.since_first_task_by(current_user) }
+
+    context 'タスクが存在しない場合' do
+      it { expect(subject).not_to be_include current_week }
+      it { expect(subject).not_to be_include last_week }
+    end
+
+    context '今週のタスクのみが存在する場合' do
+      let!(:task) { create(:task, user: current_user) }
+      it { expect(subject).to be_include current_week }
+      it { expect(subject).not_to be_include last_week }
+    end
+  end
+
   describe '#total_point' do
     let(:current_user) { create(:user) }
     subject { week.total_point(current_user) }
