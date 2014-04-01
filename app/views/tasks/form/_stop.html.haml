@@ -1,4 +1,4 @@
 = form_for(@task) do |f|
   = f.hidden_field :status, value: 'unstarted' 
-  = f.hidden_field :iteration_id, value: nil
+  = f.hidden_field :week_id, value: nil
   = f.button "#{content_tag(:i, '', class: 'fa fa-pause')}STOP".html_safe, type: :submit
