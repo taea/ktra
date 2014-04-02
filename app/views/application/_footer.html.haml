@@ -10,3 +10,6 @@
     =link_to '#p4d', 'http://prog4designer.github.io/', target: '_blank'
     %br
     =link_to 'CC BY-NC-SA 2.1', 'http://creativecommons.org/licenses/by-nc-sa/2.1/jp/', target: '_blank'
+    %br
+    = link_to user_session_path, method: :delete do
+      %i.fa.fa-sign-out
