@@ -1,5 +1,8 @@
 Ktra::Application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'sessions' }, skip: [:sessions]
+  devise_scope :user do
+    delete '/sessions' => 'devise/sessions#destroy', as: :user_session
+  end
   resources :tasks do
     member do
       post 'done'
