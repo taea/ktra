@@ -4,3 +4,5 @@ production:
   BUGSNAG_API_KEY: ''
 staging:
   BUGSNAG_API_KEY: ''
+  RAILS_ENV: 'staging'
+  RACK_ENV: 'staging'
