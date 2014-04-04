@@ -2,3 +2,6 @@ TWITTER_KEY: 'hogehoge'
 TWITTER_SECRET: 'fugofugo'
 production:
   BUGSNAG_API_KEY: ''
+staging:
+  RAILS_ENV: 'staging'
+  RACK_ENV: 'staging'
