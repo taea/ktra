@@ -3,6 +3,7 @@ TWITTER_SECRET: 'fugofugo'
 production:
   BUGSNAG_API_KEY: ''
   SECRET_TOKEN: 'aaa'
+  SESSION_KEY: '_ktra_session'
 staging:
   RAILS_ENV: 'staging'
   RACK_ENV: 'staging'
