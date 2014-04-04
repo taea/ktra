@@ -5,8 +5,7 @@ class Week < ActiveRecord::Base
   scope :since_first_task_by, -> (user) {
     first_task_created_at = user.tasks.first.try(:created_at)
     return where('1 = 0') unless first_task_created_at
-    where('? > start_date', first_task_created_at.to_date)
-      .where('end_date > ?', first_task_created_at.to_date)
+    where('end_date >= ?', first_task_created_at.to_date)
   }
 
   def self.current(time = Time.current)

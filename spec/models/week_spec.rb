@@ -12,20 +12,24 @@ describe Week do
   end
 
   describe '.since_first_task_by' do
-    let!(:last_week) { Week.current(1.week.ago) }
+    let!(:past_weeks) { [Week.current(1.week.ago), Week.current(2.week.ago), Week.current(3.week.ago)]}
     let!(:current_week) { Week.current }
     let(:current_user) { create(:user) }
     subject { Week.since_first_task_by(current_user) }
 
     context 'タスクが存在しない場合' do
       it { expect(subject).not_to be_include current_week }
-      it { expect(subject).not_to be_include last_week }
+      it { expect(subject).not_to be_include past_weeks[0] }
+      it { expect(subject).not_to be_include past_weeks[1] }
+      it { expect(subject).not_to be_include past_weeks[2] }
     end
 
-    context '今週のタスクのみが存在する場合' do
-      let!(:task) { create(:task, user: current_user) }
+    context '2週間前のタスクが存在する場合' do
+      let!(:task) { create(:task, user: current_user, created_at: 2.week.ago) }
       it { expect(subject).to be_include current_week }
-      it { expect(subject).not_to be_include last_week }
+      it { expect(subject).to be_include past_weeks[0] }
+      it { expect(subject).to be_include past_weeks[1] }
+      it { expect(subject).not_to be_include past_weeks[2] }
     end
   end
 
@@ -35,9 +39,9 @@ describe Week do
     context 'タスクが存在する場合' do
       let(:tasks) {
         [
-          create(:task, point: 2, user_id: current_user.id, week_id: week.id), 
+          create(:task, point: 2, user_id: current_user.id, week_id: week.id),
           create(:task, point: 5, user_id: current_user.id, week_id: week.id)
-        ] 
+        ]
       }
       let(:total_point) { tasks.sum(&:point) }
 
@@ -53,9 +57,9 @@ describe Week do
         let!(:other) { create(:user) }
         let!(:others_tasks) {
           [
-            create(:task, point: 3, user_id: other.id, week_id: week.id), 
+            create(:task, point: 3, user_id: other.id, week_id: week.id),
             create(:task, point: 8, user_id: other.id, week_id: week.id)
-          ] 
+          ]
         }
 
         it '他人のタスクが混ざらないこと' do
