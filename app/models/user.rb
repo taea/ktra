@@ -19,8 +19,6 @@ class User < ActiveRecord::Base
     rescue => e
       return nil
     end
-    # 大きい画像を使っちゃおうね
-    params[:image].gsub!(/_normal/, '_bigger')
 
     user = User.where(uid: params[:uid]).first_or_initialize
     user.attributes = params
