@@ -16,6 +16,7 @@ Ktra::Application.routes.draw do
   end
   root :to => 'welcome#index'
   get '/auth/failure' => 'sessions#failure'
+  resource :account, only: [:show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
