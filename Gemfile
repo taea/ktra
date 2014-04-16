@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
+
 ruby '2.1.1'
 
 gem 'rails', '4.0.3'
@@ -34,6 +36,7 @@ group :development do
   gem 'view_source_map'
   gem 'i18n-tasks'
   gem 'thin'
+  gem 'coffee-rails-source-maps'
 end
 
 group :test, :development do
@@ -70,4 +73,12 @@ gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'figaro'
 gem 'unicorn'
+gem 'backbone-on-rails'
+gem 'haml_coffee_assets'
+gem 'therubyracer', platforms: :ruby
+
 gem 'jbuilder', '~> 1.2'
+gem 'rails-assets-backbone.marionette'
+gem 'rails-assets-backbone.stickit'
+gem 'rails-assets-moment'
+
