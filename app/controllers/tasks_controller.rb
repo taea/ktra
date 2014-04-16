@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_task, only: [:edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :json
 
   # GET /tasks
   # GET /tasks.json
@@ -45,6 +46,10 @@ class TasksController < ApplicationController
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def show
+    respond_with @task
   end
 
   # PUT /tasks/1
