@@ -14,4 +14,3 @@
 #= require_tree ./controllers
 #= require_tree ./routers
 #= require_self
-
