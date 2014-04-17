@@ -1,29 +1,24 @@
-- if user_signed_in?
-  .form.new-task
-    = form_for(@task) do |f|
-      - if @task.errors.any?
-        #error_explanation
-          %h2
-            = pluralize(@task.errors.count, "error")
-            prohibited this task from being saved:
-          %ul
-            - @task.errors.full_messages.each do |msg|
-              %li= msg
-      .field
-        = render ('tasks/form/title'), f: f, placeholder: 'NEW TASK TITLE', new_task: true
-      .field.point-radio
-        = render ('tasks/form/points'), f: f
-        = f.hidden_field :status, value: 'unstarted'
-- else
-  - # FIXME
-  = link_to user_omniauth_authorize_path(:twitter) do
-    Sign in with Twitter
+.form.new-task
+  = form_for(@task) do |f|
+    - if @task.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@task.errors.count, "error")
+          prohibited this task from being saved:
+        %ul
+          - @task.errors.full_messages.each do |msg|
+            %li= msg
+    .field
+      = render ('tasks/form/title'), f: f, placeholder: 'NEW TASK TITLE', new_task: true
+    .field.point-radio
+      = render ('tasks/form/points'), f: f
+      = f.hidden_field :status, value: 'unstarted'
 
 .week-summary
   = link_to week_path(@this_week) do
     = render 'weeks/summary', week: @this_week, tasks: true
 
-- if user_signed_in? && @tasks.present?
+- if @tasks.present?
   = render 'tasks'
 - else
   %p.error-message There's no tasks yet.

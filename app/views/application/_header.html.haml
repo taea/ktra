@@ -1,12 +1,7 @@
 %header.header
   %h1= link_to "K-tra!", root_path
   .user
-    - if current_user
-      %p.image
-        =link_to image_tag(current_user.image), weeks_path
-      %p.name
-        = link_to current_user.nickname, weeks_path
-    - else
-      %p.name
-        = link_to user_omniauth_authorize_path(:twitter) do
-          sign in
+    %p.image
+      =link_to image_tag(current_user.image), weeks_path
+    %p.name
+      = link_to current_user.nickname, weeks_path
