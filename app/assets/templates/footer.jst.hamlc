@@ -1,0 +1,27 @@
+.footer-nav
+  %ul
+    %li
+      %a{href: '/sessions', rel: 'nofollow',  data: {method: 'delete'}}
+        %i.fa.fa-sign-out Sign out
+%small
+  Created by
+  %a{href: 'https://twitter.com/ken_c_lo', target: '_blank'} @ken_c_lo
+  &nbsp;
+  %a{href: 'https://twitter.com/katton', target: '_blank'} @katton
+  &nbsp;
+  %a{href: 'https://twitter.com/ppworks', target: '_blank'} @ppworks
+  &nbsp;
+  %a{href: 'https://twitter.com/fukayatsu', target: '_blank'} @fukayatsu
+  %br
+  Thanks
+  %a{href: 'http://prog4designer.github.io/', target: '_blank'} #p4d
+  %br
+  %a{href: 'http://creativecommons.org/licenses/by-nc-sa/2.1/jp/', target: '_blank'} CC BY-NC-SA 2.1
+  &nbsp;
+  = "/"
+  &nbsp;
+  %a{href: 'https://github.com/taea/ktra', target: '_blank', title: 'Fork me!'}
+    Fork me on
+    &nbsp;
+    %strong<> GitHub
+
