@@ -15,6 +15,8 @@ class Task < ActiveRecord::Base
       tweet = twitter_client.status(self.tweet_id)
       self.update_column(:tweet_meta_data, tweet.to_json)
     end
+  rescue e => Twitter::Error::NotFound
+    self.update_columns(tweet_id: nil, tweet_meta_data: nil)
   rescue
   end
 
