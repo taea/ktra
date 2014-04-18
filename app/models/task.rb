@@ -19,8 +19,10 @@ class Task < ActiveRecord::Base
       config.access_token_secret = self.user.secret
     end
 
-    client.update(I18n.t('models.task.post_to_twitter',
+    response = client.update(I18n.t('models.task.post_to_twitter',
                     title: self.title,
                     point: self.point))
+    self.update_column(:twitter_id, response.id)
+  rescue
   end
 end
