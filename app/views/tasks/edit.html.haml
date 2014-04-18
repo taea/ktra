@@ -19,3 +19,11 @@
           %dd.num= @task.finished_at.to_s(:db)
         - else
           %dd= '---'
+
+    - if @task.tweet_id
+      .favorited
+        favoited:
+        = @task.favorited_count
+      .retweeted
+        retweeted:
+        = @task.retweeted_count

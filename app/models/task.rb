@@ -9,20 +9,46 @@ class Task < ActiveRecord::Base
 
   after_create :post_to_twitter
 
+  def sync_with_twitter
+    Rails.cache.fetch("Task#sync_with_twitter", expires_in: 15.minutes) do
+      return unless self.tweet_id
+      tweet = twitter_client.status(self.tweet_id)
+      self.update_column(:tweet_meta_data, tweet.to_json)
+    end
+  rescue
+  end
+
+  def retweeted_count
+    return unless self.tweet_meta_data
+    tweet['retweet_count'].to_i
+  end
+
+  def favorited_count
+    return unless self.tweet_meta_data
+    tweet['favorite_count'].to_i
+  end
+
+  def tweet
+    data = {'retweet_count' => 0, 'favorite_count' => 0}
+    data.merge(JSON.parse(self.tweet_meta_data))
+  end
+
   private
-  def post_to_twitter
-    return true unless self.to_twitter == '1'
-    client = Twitter::REST::Client.new do |config|
+  def twitter_client
+    Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['TWITTER_KEY']
       config.consumer_secret     = ENV['TWITTER_SECRET']
       config.access_token        = self.user.token
       config.access_token_secret = self.user.secret
     end
+  end
 
-    response = client.update(I18n.t('models.task.post_to_twitter',
+  def post_to_twitter
+    return true unless self.to_twitter == '1'
+    response = twitter_client.update(I18n.t('models.task.post_to_twitter',
                     title: self.title,
                     point: self.point))
-    self.update_column(:twitter_id, response.id)
+    self.update_column(:tweet_id, response.id)
   rescue
   end
 end

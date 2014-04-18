@@ -29,6 +29,8 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
     @this_week = Week.current
+    # [FIXME] 同期、っておした時だけにする？
+    @task.sync_with_twitter
   end
 
   # POST /tasks
