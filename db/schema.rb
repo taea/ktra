@@ -20,12 +20,12 @@ ActiveRecord::Schema.define(version: 20140418001643) do
     t.text     "memo"
     t.datetime "started_at"
     t.datetime "finished_at"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "week_id"
     t.integer  "user_id"
-    t.string   "twitter_id"
-    t.text     "twitter_meta_data"
+    t.string   "tweet_id"
+    t.text     "tweet_meta_data"
   end
 
   add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
