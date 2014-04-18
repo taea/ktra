@@ -35,6 +35,16 @@ class Task < ActiveRecord::Base
     data.merge(JSON.parse(self.tweet_meta_data))
   end
 
+  def oembed_html
+    Rails.cache.fetch("Task#oembed_links", expires_in: 15.minutes) do
+      return unless self.tweet_id
+      twitter_client.oembed(self.tweet_id).html
+    end
+  rescue Twitter::Error::NotFound => e
+    self.update_columns(tweet_id: nil, tweet_meta_data: nil)
+  rescue
+  end
+
   private
   def twitter_client
     Twitter::REST::Client.new do |config|

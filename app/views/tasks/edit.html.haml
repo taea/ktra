@@ -21,9 +21,4 @@
           %dd= '---'
 
     - if @task.tweet_id
-      .favorited
-        favoited:
-        = @task.favorited_count
-      .retweeted
-        retweeted:
-        = @task.retweeted_count
+      = @task.oembed_html.html_safe
