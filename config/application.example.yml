@@ -1,5 +1,8 @@
 TWITTER_KEY: 'hogehoge'
 TWITTER_SECRET: 'fugofugo'
+TWITTER_OAUTH_TOKEN: '@ktra_appのOAUTH token入れてください'
+TWITTER_OAUTH_SECRET: '@ktra_appのOAUTH secret入れてください'
+TWITTER_TRACK_KEYWORDS: '@ktra_app'
 production:
   BUGSNAG_API_KEY: ''
   SECRET_TOKEN: 'aaa'

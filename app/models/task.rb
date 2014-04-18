@@ -9,6 +9,16 @@ class Task < ActiveRecord::Base
 
   after_create :post_to_twitter
 
+  def self.register_from_twitter(tweet)
+    body = tweet['text'].sub(/#{ENV['TWITTER_TRACK_KEYWORDS']}\s+/, '')
+    uid = tweet['user']['id']
+    user = User.find_by(uid: uid)
+    point = body.match(/#(\d+)pt/).try('[]', 1)
+    title = body.gsub(/#\d+pt/, '')
+    user.tasks.create(title: title, point: point)
+  rescue
+  end
+
   def sync_with_twitter
     Rails.cache.fetch("Task#sync_with_twitter", expires_in: 15.minutes) do
       return unless self.tweet_id
