@@ -6,6 +6,7 @@ gem 'rails', '4.0.3'
 # APIs
 gem 'bugsnag'
 gem 'twitter'
+gem 'em-twitter'
 
 # Auth
 gem 'devise'

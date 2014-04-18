@@ -110,6 +110,11 @@ GEM
       json
       thread
       thread_safe
+    em-twitter (0.3.3)
+      buftok (~> 0.2)
+      eventmachine (~> 1.0)
+      http_parser.rb (~> 0.6)
+      simple_oauth (~> 0.2)
     equalizer (0.0.9)
     erb2haml (0.1.5)
       html2haml
@@ -389,6 +394,7 @@ DEPENDENCIES
   database_cleaner
   delorean
   devise
+  em-twitter
   erb2haml
   factory_girl
   factory_girl_rails
