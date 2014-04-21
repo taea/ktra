@@ -7,7 +7,6 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = current_user.tasks.active if user_signed_in?
-    @task = Task.new
     @this_week = Week.current
     respond_to do |format|
       format.html # index.html.erb

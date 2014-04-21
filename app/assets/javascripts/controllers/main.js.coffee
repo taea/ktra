@@ -3,21 +3,31 @@ class Ktra.Controllers.Main extends Marionette.Controller
     Ktra.Application.addRegions
       header: '.header'
       form: '.new-task'
-      footer: '.footer'
 
     @user ?= new Ktra.Models.User()
-    @user.fetch(reset: true)
-      .done =>
-        headerView = new Ktra.Views.Header(model: @user)
-        Ktra.Application.header.show(headerView)
-
-    footerView = new Ktra.Views.Footer()
-    Ktra.Application.footer.show(footerView)
+    @user.fetch(reset: true).done =>
+      headerView = new Ktra.Views.Header(model: @user)
+      Ktra.Application.header.show(headerView)
 
   tasks: ->
     # TODO
-    #formView = new Ktra.Views.Form()
-    #Ktra.Application.form.show(formView)
+    #tasksLayout = new Ktra.Layouts.Tasks()
+    #Ktra.Application.main.show(tasksLayout)
+
+    formView = new Ktra.Views.Form()
+    Ktra.Application.form.show(formView)
+
+    # TODO
+    #tasksLayout.form.show(formView)
+
+    # TODO
+    #weekSummaryView = new Ktra.Views.WeekSummary()
+    #tasksLayout.weekSummary.show(weekSummaryView)
+
+    # TODO
+    #@tasks = new Ktra.Collections.Tasks()
+    #@tasks.fetch(reset: true).done =>
+      #tasksLayout.tasks.show(tasksView)
 
   weeks: ->
     # TODO
