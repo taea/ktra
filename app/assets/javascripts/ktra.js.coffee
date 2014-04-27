@@ -5,11 +5,10 @@ window.Ktra =
   Layouts: {}
   Views: {}
   Routers: {}
+  Application: new Backbone.Marionette.Application()
   initialize: ->
-    Ktra.Application = new Backbone.Marionette.Application()
-    Ktra.Application.addInitializer -> Backbone.history.start()
-    Ktra.Application.addInitializer -> new Ktra.Routers.Main()
+    Ktra.Application.addInitializer ->
+      new Ktra.Routers.Main()
+      Backbone.history.start()
     Ktra.Application.start()
 
-$(document).ready ->
-  Ktra.initialize()
