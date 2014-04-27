@@ -1,10 +1,6 @@
 class Ktra.Routers.Main extends Backbone.Marionette.AppRouter
-  initialize: ->
-    @controller = new Ktra.Controllers.Main()
-    @controller.tasks()
+  controller: new Ktra.Controllers.Main()
 
   appRoutes:
     '': 'tasks'
-    'weeks': 'weeks'
-    'weeks/:id': 'week'
-
+    'tasks': 'tasks'
