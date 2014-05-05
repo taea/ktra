@@ -8,7 +8,8 @@
       = render ("tasks/statuses/#{@task.status}"), task: @task
     = render 'form'
     .tweet
-      = link_to "http://twitter.com/share?text=TODO: #{@task.title} [#{@task.point}pt] @ktra_app&url=https://ktra.herokuapp.com", target: '_blank' do
+      - status_text = @task.status == 'unstarted' ? 'TODO' : @task.status.upcase
+      = link_to "http://twitter.com/share?text=#{status_text}: #{@task.title} [#{@task.point}pt] @ktra_app&url=https://ktra.herokuapp.com", target: '_blank' do
         %i.fa.fa-twitter
         Tweet this task
     .time
