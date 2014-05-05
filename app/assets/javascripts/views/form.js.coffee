@@ -3,7 +3,8 @@ class Ktra.Views.Form extends Backbone.Marionette.ItemView
 
   ui:
     'title': '#task_title'
-    'radios': '.point-radio'
+    'radios': 'input[type=radio]'
+    'wrapRadios': '.point-radio'
     'form': '.new_task'
 
   initialize: ->
@@ -12,41 +13,40 @@ class Ktra.Views.Form extends Backbone.Marionette.ItemView
   onShow: ->
     @togglePointRadioButtons()
 
-  onRender: ->
-    @stickit()
-
   events:
     'submit form': 'create'
     'keyup @ui.title': 'togglePointRadioButtons'
     'keypress input:not(.allow-submit)': 'ignore'
     'click input[type=radio]': 'create'
 
-  bindings:
-    '#task_title': 'title'
-    'input[type=radio]': 'point'
-
   create: (e) ->
     e.preventDefault()
-    console.log @model
+
+    @model.set
+      title: @ui.title.val()
+      point: @$('input[type=radio]:checked').val()
 
     @model.save(wait: true).done =>
-      @$(@ui.title).val('')
+      @ui.title.val('')
+      @ui.radios.prop(checked: false)
       @hidePointRadioButtons()
+      @trigger 'task:created'
+      @model = new Ktra.Models.Task()
 
   ignore: (e) ->
     e.which != 13
 
   togglePointRadioButtons: ->
-    if @$(@ui.title).val()
+    if @ui.title.val()
       @showPointRadioButtons()
     else
       @hidePointRadioButtons()
 
   showPointRadioButtons: ->
-    @$(@ui.radios).slideDown('fast', 'swing')
+    @ui.wrapRadios.slideDown('fast', 'swing')
 
   hidePointRadioButtons: ->
-    @$(@ui.radios).hide()
+    @ui.wrapRadios.hide('fast', 'swing')
 
   submit: ->
     @create()

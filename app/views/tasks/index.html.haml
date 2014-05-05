@@ -4,7 +4,7 @@
   = link_to week_path(@this_week) do
     = render 'weeks/summary', week: @this_week, tasks: true
 
-- if @tasks.present?
-  = render 'tasks'
-- else
-  %p.error-message There's no tasks yet.
+.tasks
+  .placeholder{style: 'color: white; text-align: center'}
+    %i.fa.fa-spin.fa-refresh.fa-2x
+  - # Rendering by Backbone
