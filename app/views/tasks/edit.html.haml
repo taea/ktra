@@ -7,6 +7,10 @@
     .form-header
       = render ("tasks/statuses/#{@task.status}"), task: @task
     = render 'form'
+    .tweet
+      = link_to "http://twitter.com/share?text=TODO: #{@task.title} [#{@task.point}pt] @ktra_app&url=https://ktra.herokuapp.com", target: '_blank' do
+        %i.fa.fa-twitter
+        Tweet this task
     .time
       %dl
         %dt START
