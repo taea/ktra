@@ -237,6 +237,17 @@ select
         font-size: 20px
         +relative
         top: 3px
+
+  .tweet
+    margin-top: 20px
+    text-align: center
+    a
+      i
+        font-size: 130%
+        color: rgba(white, .5)
+        +relative
+        top: 2px
+
   .time
     font-size: 10px
     margin-top: 30px
@@ -290,7 +301,10 @@ select
         color: white
       .destroy > a
         color: $pt-color
-        
+      .tweet > a
+        color: $pt-color
+        i
+          color: rgba($pt-color, .5)
 
   &.doing
     .destroy > a
@@ -329,6 +343,10 @@ select
           color: $pt-color
         .destroy > a
           color: white
+        .tweet > a
+          color: white
+          i
+            color: rgba(white, .5)
 
 .form
   width: 320px
