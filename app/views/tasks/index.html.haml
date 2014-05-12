@@ -11,6 +11,8 @@
               %li= msg
       .field
         = render ('tasks/form/title'), f: f, placeholder: 'NEW TASK TITLE', new_task: true
+      .field
+        = f.check_box :to_twitter
       .field.point-radio
         = render ('tasks/form/points'), f: f
         = f.hidden_field :status, value: 'unstarted'

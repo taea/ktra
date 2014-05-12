@@ -29,6 +29,8 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
     @this_week = Week.current
+    # [FIXME] 同期、っておした時だけにする？
+    @task.sync_with_twitter
   end
 
   # POST /tasks
@@ -83,6 +85,14 @@ class TasksController < ApplicationController
   end
 
   def task_param
-    params.require(:task).permit(:finished_at, :memo, :point, :started_at, :status, :title, :week_id)
+    params.require(:task).permit(
+      :finished_at,
+      :memo,
+      :point,
+      :started_at,
+      :status,
+      :title,
+      :week_id,
+      :to_twitter)
   end
 end

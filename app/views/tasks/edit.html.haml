@@ -24,3 +24,6 @@
           %dd.num= @task.finished_at.to_s(:db)
         - else
           %dd= '---'
+
+    - if @task.tweet_id
+      = @task.oembed_html.html_safe
