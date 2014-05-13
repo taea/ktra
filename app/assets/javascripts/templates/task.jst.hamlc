@@ -1,0 +1,10 @@
+%a
+  %span.title<>= @title
+  %span.point<>
+    %span.num<>= @point
+    pt
+    %i.fa.fa-chevron-right
+%span.status<>
+  %button{type: 'submit'}
+    %i.fa.fa-play-circle
+    START

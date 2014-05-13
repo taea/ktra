@@ -1,0 +1,12 @@
+%form#new_task.new_task
+  .field
+    %input{autocomplete: "off", id: "task_title", name: "task[title]", placeholder: "NEW TASK TITLE", required: "required", type: "text"}
+    %i.fa.fa-pencil
+  .field.point-radio
+    %ul
+      - _.each [0, 1, 2, 3, 5, 8], (pt) ->
+        %li{class: "pt#{pt}"}
+          %input{type: 'radio', id: "task_point_#{pt}", value: "#{pt}", name: 'task[point]'}
+          %label{for: "task_point_#{pt}"}
+            %span.num<>= pt
+            pt

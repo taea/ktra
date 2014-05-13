@@ -24,6 +24,7 @@
 Guardfile
 capybara-*.html
 config/application.yml
+config/projections.json
 config/environments/*.local.yml
 config/settings.local.yml
 config/settings/*.local.yml

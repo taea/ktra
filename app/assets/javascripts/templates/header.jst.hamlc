@@ -1,0 +1,9 @@
+%h1
+  %a K-tra!
+.user
+  %p.image
+    %a{href: '#weeks'}
+      %img{src: "#{@image}", alt: "#{@nickname}"}
+  %p.name
+    %a{href: '#weeks'}
+      = @nickname
