@@ -8,3 +8,53 @@
   %button{type: 'submit'}
     %i.fa.fa-play-circle
     START
+
+.edit{class: "#{@status} pt#{@point}"}
+  .form
+    %form
+      .field
+        %input#task_title.allow-submit{required: true, placeholder: 'TITLE', autocomplete: 'off', type: 'text', value: @title}
+        %i.fa.fa-pencil
+      .field.point-radio
+        %ul
+          - _.each [0, 1, 2, 3, 5, 8], (pt) =>
+            %li{class: "pt#{pt}"}
+              %input{type: 'radio', id: "task_point_#{pt}", value: "#{pt}", name: 'task[point]', checked: (@point == pt)}
+              -#- console.log @point
+              -#- console.log pt
+              -#- console.log(@point == pt)
+              %label{for: "task_point_#{pt}"}
+                %span.num<>= pt
+                pt
+      .field
+        %textarea#task_memo.memo{placeholder: 'MEMO', value: @memo}
+      -#.actions
+        %i.fa.fa-arrow-down
+        %button{name: 'button', type: 'submit'}
+          %i.fa.fa-floppy-o
+          SAVE
+    .form-header
+      %h2
+        STANDBY
+        %i.fa.fa-arrow-right
+      %form
+        %input{type: 'hidden'}
+        %button{type: 'submit'}
+          %i.fa.fa-play-ciecle
+          START
+    .time
+      %dl
+        %dt START
+        - if @started_at
+          %dd.num= @started_at
+        - else
+          %dd= '---'
+        %dt FINISH
+        - if @finished_at
+          %dd.num= @finished_at
+        - else
+          %dd= '---'
+    %p.destroy
+      %a.delete
+        DELETE
+        %i.fa.fa-times-circle

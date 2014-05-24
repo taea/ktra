@@ -215,8 +215,12 @@ select
 .edit
   background: $color-unstarted
   color: $text-color
-  padding: 10px 0 30px
   overflow: hidden
+  +none
+
+  &.active
+    padding: 10px 0 30px
+    +block
 
   .fa-pencil
     color: rgba(0,0,0,.2)
