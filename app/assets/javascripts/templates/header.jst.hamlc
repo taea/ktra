@@ -1,9 +1,12 @@
 %h1
+  - # TODO route to tasks
   %a K-tra!
 .user
   %p.image
+    - # TODO route to weeks
     %a{href: '#weeks'}
       %img{src: "#{@image}", alt: "#{@nickname}"}
   %p.name
+    - # TODO route to weeks
     %a{href: '#weeks'}
       = @nickname
