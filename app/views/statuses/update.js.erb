@@ -1,0 +1,2 @@
+var target = '#task<%= @task.id %>';
+$(target).replaceWith('<%=j render(partial: 'tasks/task', locals: {task: @task}) %>');
