@@ -12,7 +12,7 @@
       .field
         = render ('tasks/form/title'), f: f, placeholder: 'NEW TASK TITLE', new_task: true
       .field.point-radio
-        = render ('tasks/form/points'), f: f
+        = render partial: 'tasks/form/points', locals: {f: f, edit: ''}
         = f.hidden_field :status, value: 'unstarted'
 - else
   - # FIXME

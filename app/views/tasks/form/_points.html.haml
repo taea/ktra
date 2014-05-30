@@ -1,7 +1,7 @@
 %ul
   - Task::POINTS.each do |pt|
     %li{class: "pt#{pt}"}
-      = f.radio_button :point, pt
-      = f.label :point, for: "task_point_#{pt}" do
+      = f.radio_button :point, pt, id: "task_point_#{pt + edit}"
+      = f.label :point, for: "task_point_#{pt + edit}" do
         %span.num<>= pt
         pt

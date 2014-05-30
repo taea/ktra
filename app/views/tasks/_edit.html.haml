@@ -1,0 +1,26 @@
+.edit{class: "#{task.status} pt#{task.point}"}
+  .form
+    %p.destroy
+      = link_to task_path(task), method: 'delete', confirm: 'Are you sure you want to delete this task?' do
+        DELETE
+        %i.fa.fa-times-circle
+    .form-header
+      = render ("tasks/statuses/#{task.status}"), task: task
+    = render 'form', task: task
+    .tweet
+      - status_text = task.status == 'unstarted' ? 'TODO' : task.status.upcase
+      = link_to "http://twitter.com/share?text=#{status_text}: #{task.title} [#{task.point}pt] @ktra_app&url=https://ktra.herokuapp.com", target: '_blank' do
+        %i.fa.fa-twitter
+        Tweet this task
+    .time
+      %dl
+        %dt START
+        - if task.started_at
+          %dd.num= task.started_at.to_s(:db)
+        - else
+          %dd= '---'
+        %dt FINISH
+        - if task.finished_at
+          %dd.num= task.finished_at.to_s(:db)
+        - else
+          %dd= '---'

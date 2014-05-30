@@ -1,0 +1,14 @@
+var target = '#task<%= @task.id %>';
+var targetEdit = '#task<%= @task.id %> .edit';
+
+if($(targetEdit).length){
+  $(targetEdit).hide('blind', 400);
+  $(targetEdit).promise().done(function(){
+    $(targetEdit).remove();
+  });
+} else {
+  $(target).append('<%=j render(partial: 'edit', locals: {task: @task}) %>');
+  $(target).promise().done(function(){
+    $(targetEdit).show('blind', 400);
+  });
+}

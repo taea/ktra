@@ -1,5 +1,5 @@
-%li.task{class: "#{task.status} pt#{task.point}"}
-  =link_to edit_task_path(task) do
+%li.task{id: "task#{task.id}", class: "#{task.status} pt#{task.point}"}
+  =link_to edit_task_path(task), remote: true do
     %span.title<>= task.title
     - if task.point.present?
       %span.point<>
