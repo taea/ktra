@@ -60,6 +60,7 @@ class TasksController < ApplicationController
       if @task.update_attributes(task_param)
         format.html { redirect_to root_path, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
+        format.js { render }
       else
         format.html { render action: "edit" }
         format.json { render json: @task.errors, status: :unprocessable_entity }
