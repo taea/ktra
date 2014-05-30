@@ -1,6 +1,6 @@
 - if user_signed_in?
   .form.new-task
-    = form_for(@task) do |f|
+    = form_for(@task, remote: true) do |f|
       - if @task.errors.any?
         #error_explanation
           %h2

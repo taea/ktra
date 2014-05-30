@@ -1,0 +1,4 @@
+$('.tasks-list').prepend('<%=j render(partial: 'task', locals: { task: @task }) %>');
+$('.new-task #task_title').val('');
+$('.point-radio input').prop('checked', false);
+Ktra.tasks.toggle_point_radio_buttons();
