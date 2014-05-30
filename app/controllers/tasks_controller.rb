@@ -74,6 +74,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tasks_url }
       format.json { head :no_content }
+      format.js { render }
     end
   end
 

@@ -1,7 +1,7 @@
 .edit{class: "#{task.status} pt#{task.point}"}
   .form
     %p.destroy
-      = link_to task_path(task), method: 'delete', confirm: 'Are you sure you want to delete this task?' do
+      = link_to task_path(task), method: 'delete', remote: true, confirm: 'Are you sure you want to delete this task?' do
         DELETE
         %i.fa.fa-times-circle
     .form-header

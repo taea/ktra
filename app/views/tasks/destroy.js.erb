@@ -1,0 +1,4 @@
+var target = '#task<%= @task.id %>';
+$(target).hide('blind', 400, function(){
+  $(target).remove();
+});
