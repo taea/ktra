@@ -218,6 +218,7 @@ select
   padding: 10px 0 30px
   overflow: hidden
   +none
+  border-bottom: 1px solid rgba(0,0,0,.05)
 
   .fa-pencil
     color: rgba(0,0,0,.2)
@@ -225,12 +226,13 @@ select
     left: -25px
     top: 2px
 
-  .destroy
-    text-align: right
+  .sub-action
     line-height: 20px
     margin:
-      right: 15px
-      bottom: 10px
+      top: 10px
+    +clearfix
+    li
+      float: left
     a
       color: $text-color
       font-size: 10px
@@ -238,6 +240,15 @@ select
         font-size: 20px
         +relative
         top: 3px
+    button
+      background: transparent !important
+      border: none
+      color: white !important
+      +relative
+      top: 2px
+      i
+        margin-right: 5px
+        font-size: 120%
 
   .tweet
     margin-top: 20px
