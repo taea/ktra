@@ -139,7 +139,7 @@ input[type="submit"], button, select
         .status > input[type="submit"], button
           background: rgba(0, 0, 0, .1)
   &.done
-    +opacity(.3)
+    +opacity(.6)
 
 label
   display: block
@@ -318,7 +318,7 @@ select
         i
           color: rgba($pt-color, .5)
 
-  &.doing
+  &.doing, &.done
     .destroy > a
       color: white
     @for $pt from 0 through 8
