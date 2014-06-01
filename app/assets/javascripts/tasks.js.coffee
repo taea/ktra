@@ -18,7 +18,7 @@ class Tasks
     $(document).on 'keyup', '.new_task #task_title', @toggle_point_radio_buttons
 
   toggle_point_radio_buttons: =>
-    if $('#task_title').val()
+    if $('.new_task #task_title').val()
       @show_point_radio_buttons()
     else
       @hide_point_radio_buttons()
@@ -29,8 +29,6 @@ class Tasks
   hide_point_radio_buttons: =>
     $(".new-task .point-radio").hide()
 
-
   listen_task_point: ->
     $(document).on 'click', '.new_task .point-radio input', (e) =>
       $('.new_task').submit()
-

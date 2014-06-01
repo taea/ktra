@@ -1,4 +1,4 @@
-= form_for(task) do |f|
+= form_for(task, remote: true, url: task_status_path(task)) do |f|
   = f.hidden_field :started_at, value: Time.now.to_s(:db)
   = f.hidden_field :status, value: 'doing' 
   = f.hidden_field :week_id, value: nil

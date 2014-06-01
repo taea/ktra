@@ -7,6 +7,7 @@ Ktra::Application.routes.draw do
     member do
       post 'done'
     end
+    resource :status, only: [:update]
   end
   resources :weeks do
     resources :tasks

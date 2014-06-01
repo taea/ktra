@@ -1,0 +1,6 @@
+var target = '#task<%= @task.id %>';
+var targetEdit = '#task<%= @task.id %> .edit';
+
+$(targetEdit).hide('blind', 400, function(){
+  $(target).replaceWith('<%=j render(partial: 'task', locals: {task: @task}) %>');
+});

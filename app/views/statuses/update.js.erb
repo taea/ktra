@@ -1,0 +1,8 @@
+var target = '#task<%= @task.id %>';
+<% if @task.status == 'done' %>
+  $(target).hide('blind', 400, function(){
+    $(target).remove();
+  });
+<% else %>
+  $(target).replaceWith('<%=j render(partial: 'tasks/task', locals: {task: @task}) %>');
+<% end %>

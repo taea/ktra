@@ -1,16 +1,16 @@
-= form_for(@task) do |f|
-  - if @task.errors.any?
+= form_for task, remote: true do |f|
+  - if task.errors.any?
     #error_explanation
       %h2
-        = pluralize(@task.errors.count, "error")
+        = pluralize(task.errors.count, "error")
         prohibited this task from being saved:
       %ul
-        - @task.errors.full_messages.each do |msg|
+        - task.errors.full_messages.each do |msg|
           %li= msg
   .field
     = render ('tasks/form/title'), f: f, placeholder: 'TITLE'
   .field.point-radio
-    = render ('tasks/form/points'), f: f
+    = render partial: 'tasks/form/points', locals: {f: f, edit: "_#{task.id}"}
   .field
     = f.text_area :memo, class: 'memo', placeholder: 'MEMO'
   .actions
