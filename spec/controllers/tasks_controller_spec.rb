@@ -8,6 +8,7 @@ describe TasksController do
   end
 
   let(:task) { create :task, user_id: user.id }
+  let(:task_params) { attributes_for :task, user_id: user.id }
 
   context 'with {format: :json}' do
     describe 'GET #index' do
@@ -19,7 +20,7 @@ describe TasksController do
 
     describe 'POST #create' do
       it 'json is works' do
-        post :create, task: attributes_for(:task, user_id: user.id), format: :json
+        post :create, task: task_params, format: :json
         expect(response).to be_success
       end
     end
@@ -33,7 +34,7 @@ describe TasksController do
 
     describe 'PUT #update' do
       it 'json is works' do
-        put :update, id: task.id, task: attributes_for(:task, user_id: user.id), format: :json
+        put :update, id: task.id, task: task_params, format: :json
         expect(response).to be_success
       end
     end
@@ -49,7 +50,7 @@ describe TasksController do
   context 'with {format: :js}' do
     describe 'POST #create' do
       it 'js is works' do
-        post :create, task: attributes_for(:task, user_id: user.id), format: :js
+        post :create, task: task_params, format: :js
         expect(response).to be_success
       end
     end
@@ -63,7 +64,7 @@ describe TasksController do
 
     describe 'PUT #update' do
       it 'js is works' do
-        put :update, id: task.id, task: attributes_for(:task, user_id: user.id), format: :js
+        put :update, id: task.id, task: task_params, format: :js
         expect(response).to be_success
       end
     end
