@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'spec_helper'
 
 describe StatusesController do
   let(:user) { create(:user) }
