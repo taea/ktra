@@ -1,4 +1,4 @@
 machine:
   ruby:
-    version: 2.1.1-p76
+    version: 2.1.1
   timezone: Asia/Tokyo
