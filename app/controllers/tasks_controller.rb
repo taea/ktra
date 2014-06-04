@@ -71,8 +71,8 @@ class TasksController < ApplicationController
   end
 
   def task_param
-    params
-      .require(:task)
-      .permit(:finished_at, :memo, :point, :started_at, :title, :week_id)
+    params.
+      require(:task).
+      permit(:finished_at, :memo, :point, :started_at, :title, :week_id)
   end
 end
