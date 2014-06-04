@@ -7,6 +7,9 @@ describe TasksController do
     sign_in user
   end
 
+  let(:task) { create :task, user_id: user.id }
+  let(:task_params) { attributes_for :task, user_id: user.id }
+
   context 'with {format: :json}' do
     describe 'GET #index' do
       it 'json is works' do
@@ -17,12 +20,10 @@ describe TasksController do
 
     describe 'POST #create' do
       it 'json is works' do
-        post :create, task: attributes_for(:task, user_id: user.id), format: :json
+        post :create, task: task_params, format: :json
         expect(response).to be_success
       end
     end
-
-    let(:task) { create :task, user_id: user.id }
 
     describe 'GET #show' do
       it 'json is works' do
@@ -33,7 +34,7 @@ describe TasksController do
 
     describe 'PUT #update' do
       it 'json is works' do
-        put :update, id: task.id, task: attributes_for(:task, user_id: user.id), format: :json
+        put :update, id: task.id, task: task_params, format: :json
         expect(response).to be_success
       end
     end
@@ -41,6 +42,36 @@ describe TasksController do
     describe 'DELETE #destoy' do
       it 'json is works' do
         delete :destroy, id: task.id, format: :json
+        expect(response).to be_success
+      end
+    end
+  end
+
+  context 'with {format: :js}' do
+    describe 'POST #create' do
+      it 'js is works' do
+        post :create, task: task_params, format: :js
+        expect(response).to be_success
+      end
+    end
+
+    describe 'GET #edit' do
+      it 'js is works' do
+        get :edit, id: task.id, format: :js
+        expect(response).to be_success
+      end
+    end
+
+    describe 'PUT #update' do
+      it 'js is works' do
+        put :update, id: task.id, task: task_params, format: :js
+        expect(response).to be_success
+      end
+    end
+
+    describe 'DELETE #destoy' do
+      it 'js is works' do
+        delete :destroy, id: task.id, format: :js
         expect(response).to be_success
       end
     end
