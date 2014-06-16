@@ -29,6 +29,10 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
     @this_week = Week.current
+    respond_with @task do |f|
+      f.js { render }
+      f.html { redirect_to root_path }
+    end
   end
 
   # POST /tasks
