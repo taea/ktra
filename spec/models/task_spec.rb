@@ -19,29 +19,21 @@ describe Task do
     end
 
     context 'タスクが存在する場合' do
-      let(:tasks) {
-        [
-          create(:task, point: 2, user_id: current_user.id), 
-          create(:task, point: 5, user_id: current_user.id)
-        ] 
-      }
+      let(:task1) { create(:task, point: 2, user_id: current_user.id) }
+      let(:task2) { create(:task, point: 5, user_id: current_user.id) }
 
       context '引数にユーザを指定した場合' do
         it 'そのユーザのタスクが取得できること' do
-          expect(subject).to eq tasks
+          expect(subject).to include(task1, task2)
         end
 
         context '他人のタスクが存在する場合' do
-          let!(:other) { create(:user) }
-          let!(:others_tasks) {
-            [
-              create(:task, point: 3, user_id: other.id), 
-              create(:task, point: 8, user_id: other.id)
-            ] 
-          }
+          let(:other) { create(:user) }
+          let(:other_task1) { create(:task, point: 3, user_id: other.id) }
+          let(:other_task2) { create(:task, point: 8, user_id: other.id) }
 
           it '他人のタスクが混ざらないこと' do
-            expect(subject).to eq tasks
+            expect(subject).to_not include(other_task1, other_task2)
           end
         end
       end
