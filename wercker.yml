@@ -16,7 +16,7 @@ build:
                 echo -p "gem list: $(gem list)"
         - script:
             name: Set up application.yml
-            code: cp config/application.yml.example config/application.yml
+            code: cp config/application.example.yml config/application.yml
         - script:
             name: Create tmp dir
             code: bundle exec rake tmp:create
