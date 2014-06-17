@@ -1,31 +1,31 @@
 box: wercker/rvm
 services:
-  - wercker/postgresql
+    - wercker/postgresql
 build:
-  steps:
-    - rvm-use:
-       version: 2.1.1
-    - bundle-install
-    - rails-database-yml:
-      service: postgresql
-    - script:
-      name: echo ruby information
-      code: |
-        echo "ruby version $(ruby --version) running"
-        echo "from location $(which ruby)"
-        echo -p "gem list: $(gem list)"
-    - script:
-      name: Set up application.yml
-      code: cp config/application.yml.example config/application.yml
-    - script:
-      name: Create tmp dir
-      code: bundle exec rake tmp:create
-    - script:
-      name: CI env
-      code: export CI='ON'
-    - script:
-      name: Set up db
-      code: RAILS_ENV=test bundle exec rake db:schema:load
-    - script:
-      name: Run RSpec
-      code: bundle exec rspec
+    steps:
+        - rvm-use:
+            version: 2.1.1
+        - bundle-install
+        - rails-database-yml:
+            service: postgresql
+        - script:
+            name: echo ruby information
+            code: |
+                echo "ruby version $(ruby --version) running"
+                echo "from location $(which ruby)"
+                echo -p "gem list: $(gem list)"
+        - script:
+            name: Set up application.yml
+            code: cp config/application.yml.example config/application.yml
+        - script:
+            name: Create tmp dir
+            code: bundle exec rake tmp:create
+        - script:
+            name: CI env
+            code: export CI='ON'
+        - script:
+            name: Set up db
+            code: RAILS_ENV=test bundle exec rake db:schema:load
+        - script:
+            name: Run RSpec
+            code: bundle exec rspec
