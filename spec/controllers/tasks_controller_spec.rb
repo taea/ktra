@@ -10,6 +10,15 @@ describe TasksController do
   let(:task) { create :task, user_id: user.id }
   let(:task_params) { attributes_for :task, user_id: user.id }
 
+  context 'with {format: :html}' do
+    describe 'GET #edit' do
+      it 'redirect_to root_url' do
+        get :edit, id: task.id
+        expect(response).to redirect_to root_url
+      end
+    end
+  end
+
   context 'with {format: :json}' do
     describe 'GET #index' do
       it 'json is works' do
