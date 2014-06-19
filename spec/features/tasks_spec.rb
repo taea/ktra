@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Tasks List Spec' do
   let(:user) { create :user }
 
-  before do
+  background do
     oauth_sign_in(user, :twitter, false)
   end
 
@@ -12,9 +12,9 @@ feature 'Tasks List Spec' do
   end
 
   context 'with tasks' do
-    context "with \'unstarted\' task" do
-      let!(:task) { create :task, status: :unstarted }
+    let!(:task) { create :task }
 
+    context "with \'unstarted\' task ( default status )" do
       scenario 'should have \'START\' button' do
         visit '/'
         expect(page).to have_text('START')
@@ -22,7 +22,10 @@ feature 'Tasks List Spec' do
     end
 
     context "with \'doing\' task" do
-      let!(:task) { create :task, status: :doing }
+      background do
+        task.status = 'doing'
+        task.save
+      end
 
       scenario 'should have \'DONE\' button' do
         visit '/'
@@ -31,7 +34,11 @@ feature 'Tasks List Spec' do
     end
 
     context "with \'done\' task" do
-      let!(:task) { create :task, status: :done, title: 'DONED TASK' }
+      background do
+        task.title = 'DONED TASK'
+        task.status = 'done'
+        task.save
+      end
 
       scenario 'DONE task should not displayed at root' do
         visit '/'
