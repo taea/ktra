@@ -55,4 +55,11 @@ describe Task do
       end
     end
   end
+
+  describe '#set_default_status' do
+    let(:task) { create :task, status: nil }
+    it 'should set default status before create' do
+      expect(task.status).to eq('unstarted')
+    end
+  end
 end
