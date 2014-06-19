@@ -13,7 +13,6 @@
         = render ('tasks/form/title'), f: f, placeholder: 'NEW TASK TITLE', new_task: true
       .field.point-radio
         = render partial: 'tasks/form/points', locals: {f: f, edit: ''}
-        = f.hidden_field :status, value: 'unstarted'
 - else
   - # FIXME
   = link_to user_omniauth_authorize_path(:twitter) do
