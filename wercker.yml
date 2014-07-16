@@ -4,7 +4,7 @@ services:
 build:
     steps:
         - rvm-use:
-            version: 2.1.1
+            version: 2.1.2
         - bundle-install
         - rails-database-yml:
             service: postgresql
