@@ -24,7 +24,6 @@ group :development do
   gem 'hirb'
   gem 'hirb-unicode'
   gem 'letter_opener'
-  gem 'pry-byebug'
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
