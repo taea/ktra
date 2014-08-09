@@ -3,6 +3,8 @@ The Lightweight Task Tracker.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+![](https://dltvadzlmcsl3.cloudfront.net/uploads/post/image/22887/thumb_f2d084ee5288a867ac17055bc034f2cb.gif)
+
 ## Setup for development
 
 rename config/application.example.yml to config/application.yml
