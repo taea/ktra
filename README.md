@@ -1,6 +1,8 @@
 # ktra
 The Lightweight Task Tracker.
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 ## Setup for development
 
 rename config/application.example.yml to config/application.yml
