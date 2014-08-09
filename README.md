@@ -1,4 +1,5 @@
 # ktra
+The Lightweight Task Tracker.
 
 ## Setup for development
 
