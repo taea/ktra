@@ -1,4 +1,4 @@
-# ktra
+# K-tra!
 The Lightweight Task Tracker.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
