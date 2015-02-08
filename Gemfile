@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.2.0'
 
 gem 'rails', '4.0.3'
 
@@ -28,7 +28,7 @@ group :development do
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
-  gem 'pry-debugger'
+  gem 'pry-byebug'
   gem 'quiet_assets'
   gem 'tapp'
   gem 'view_source_map'

@@ -47,7 +47,7 @@ describe User do
       context 'userがいない' do
         let(:new_user) { create(:user) }
         before do
-          User.stub_chain(:where, :first_or_initialize).and_return(new_user)
+          allow(User).to receive_message_chain(:where, :first_or_initialize).and_return(new_user)
         end
         it { expect(subject).to eq new_user }
         it { expect(subject).to be_instance_of User }
