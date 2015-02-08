@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'rails_helper'
 
 describe 'sign_in' do
   let(:new_user) { build(:user) }

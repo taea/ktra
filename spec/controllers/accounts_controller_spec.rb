@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'rails_helper'
 
 describe AccountsController do
   let(:user) { create(:user) }
@@ -12,5 +12,9 @@ describe AccountsController do
       get :show, format: :json
       expect(response).to be_success
     end
+  end
+
+  describe 'hoge' do
+    it { expect(user).to be_valid }
   end
 end
