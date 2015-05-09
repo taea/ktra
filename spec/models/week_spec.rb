@@ -7,10 +7,6 @@ describe Week do
     it { expect(subject).to be_instance_of Week }
   end
 
-  describe 'relations' do
-    it { should have_many :tasks }
-  end
-
   describe '.since_first_task_by' do
     let!(:past_weeks) { [Week.current(1.week.ago), Week.current(2.week.ago), Week.current(3.week.ago)]}
     let!(:current_week) { Week.current }

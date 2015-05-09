@@ -10,10 +10,6 @@ Rails.application.railties.to_a { |r| r.eager_load! }
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-# Checks for pending migrations before tests are run.
-# If you are not using ActiveRecord, you can remove this line.
-ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
-
 RSpec.configure do |config|
   config.raise_errors_for_deprecations!
   config.infer_spec_type_from_file_location!
