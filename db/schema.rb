@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140401074621) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "tasks", force: true do |t|
     t.string   "title"
     t.integer  "point"
@@ -20,13 +23,13 @@ ActiveRecord::Schema.define(version: 20140401074621) do
     t.text     "memo"
     t.datetime "started_at"
     t.datetime "finished_at"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "week_id"
     t.integer  "user_id"
   end
 
-  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "uid",        null: false
@@ -35,17 +38,17 @@ ActiveRecord::Schema.define(version: 20140401074621) do
     t.string   "image"
     t.string   "token"
     t.string   "secret"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "users", ["uid"], name: "index_users_on_uid", unique: true
+  add_index "users", ["uid"], name: "index_users_on_uid", unique: true, using: :btree
 
   create_table "weeks", force: true do |t|
     t.date     "start_date"
     t.date     "end_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
