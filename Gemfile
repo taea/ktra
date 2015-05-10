@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.2'
 
-gem 'rails', '4.0.3'
+gem 'rails', '4.1.10'
 
 # APIs
 gem 'bugsnag'
@@ -34,6 +34,8 @@ group :development do
   gem 'view_source_map'
   gem 'i18n-tasks'
   gem 'thin'
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :test, :development do

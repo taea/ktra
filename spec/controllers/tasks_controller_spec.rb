@@ -66,7 +66,7 @@ describe TasksController do
 
     describe 'GET #edit' do
       it 'js is works' do
-        get :edit, id: task.id, format: :js
+        xhr :get, :edit, id: task.id, format: :js
         expect(response).to be_success
       end
     end
