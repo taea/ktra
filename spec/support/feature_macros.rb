@@ -47,7 +47,7 @@ module FeatureMacros
     auth[:provider] = provider
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[provider.to_sym] = OmniAuth::AuthHash.new(auth)
-    visit user_omniauth_authorize_path(provider: provider.to_s)
+    visit "/users/auth/#{provider.to_s}"
     visit back_path if back_path
     reload if force_reload
   end

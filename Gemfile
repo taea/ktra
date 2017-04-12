@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby '2.3.4'
 
 gem 'rails', '4.1.10'
 
@@ -11,9 +11,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 
-group :production, :staging do
-  gem 'pg'
-end
+gem 'pg'
 
 group :development do
   # Debugs
