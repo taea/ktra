@@ -11,9 +11,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 
-group :production, :staging do
-  gem 'pg'
-end
+gem 'pg'
 
 group :development do
   # Debugs
