@@ -3,6 +3,6 @@
   .logo K-tra!
   .catch The Lightweight Task Tracker.
   .sign-in-wrapper
-    = link_to user_omniauth_authorize_path(:twitter), class: 'sign-in' do
+    = link_to '/users/auth/twitter', class: 'sign-in' do
       %i.fa.fa-twitter
       %span Sign in

@@ -15,7 +15,7 @@
         = render partial: 'tasks/form/points', locals: {f: f, edit: ''}
 - else
   - # FIXME
-  = link_to user_omniauth_authorize_path(:twitter) do
+  = link_to '/users/auth/twitter' do
     Sign in with Twitter
 
 .week-summary

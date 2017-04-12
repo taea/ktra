@@ -8,5 +8,5 @@
         = link_to current_user.nickname, weeks_path
     - else
       %p.name
-        = link_to user_omniauth_authorize_path(:twitter) do
+        = link_to '/users/auth/twitter' do
           sign in
